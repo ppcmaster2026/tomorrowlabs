@@ -1750,9 +1750,10 @@ button, input, select, textarea { font-family: inherit; font-size: inherit; }
   .hero__layout {
     grid-template-columns: 1fr;
     grid-template-areas: none;
-    display: block;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
   }
-  .hero-form-card { margin-top: 32px; }
 }
 
 @media (max-width: 768px) {
