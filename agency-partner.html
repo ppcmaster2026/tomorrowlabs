@@ -1,0 +1,2866 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tomorrow Lab® — White-Label Hardware Engineering Partner for Agencies | Brooklyn, NY</title>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-KM8JWMF');</script>
+<!-- End Google Tag Manager -->
+<meta name="description" content="Tomorrow Lab is the white-label hardware engineering partner for creative, digital, and software agencies — we build the connected and physical products your client work depends on, under NDA, under your brand. Founded 2010, Brooklyn NY.">
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/iframe-resizer/4.3.9/iframeResizer.min.js"></script>
+<style>
+/* ============================================================
+   Tomorrow Lab — Comp C
+   Swiss International Typographic Style / Modernist Grid
+   Fonts: Helvetica Neue (display/body) + Roboto Mono (data/labels)
+   ============================================================ */
+
+/* ── Variables ─────────────────────────────────────────────── */
+:root {
+  --blue:       #007aff;
+  --blue-light: #ebf5ff;
+  --red:        #f7372d;
+  --red-light:  #ffefef;
+  --white:      #ffffff;
+  --black:      #000000;
+  --grey:       #333333;
+  --grey-bdr:   #d0d0d0;
+  --grey-light: #f5f5f5;
+
+  --font-sans: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  --font-mono: 'Roboto Mono', monospace;
+
+  --radius: 0px;
+  --nav-h:  60px;
+  --gutter: clamp(24px, 5vw, 80px);
+  --max-w:  1200px;
+
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* ── Reset ─────────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; font-size: 19px; }
+body {
+  font-family: var(--font-sans);
+  font-weight: 300;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--black);
+  background: var(--white);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+img, svg { display: block; max-width: 100%; }
+a { color: inherit; text-decoration: none; }
+ul { list-style: none; }
+button, input, select, textarea { font-family: inherit; font-size: inherit; }
+
+/* ── Container ─────────────────────────────────────────────── */
+.container {
+  width: 100%;
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 0 var(--gutter);
+}
+
+/* ── Section label ─────────────────────────────────────────── */
+.section-label {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--blue);
+  margin-bottom: 16px;
+}
+
+/* ── Scroll-reveal ─────────────────────────────────────────── */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.7s var(--ease-out), transform 0.7s var(--ease-out);
+}
+.reveal.in-view { opacity: 1; transform: none; }
+
+.reveal-child {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.6s var(--ease-out), transform 0.6s var(--ease-out);
+}
+.in-view .reveal-child { opacity: 1; transform: none; }
+.in-view .reveal-child:nth-child(1) { transition-delay: 0.05s; }
+.in-view .reveal-child:nth-child(2) { transition-delay: 0.12s; }
+.in-view .reveal-child:nth-child(3) { transition-delay: 0.19s; }
+.in-view .reveal-child:nth-child(4) { transition-delay: 0.26s; }
+.in-view .reveal-child:nth-child(5) { transition-delay: 0.33s; }
+.in-view .reveal-child:nth-child(6) { transition-delay: 0.40s; }
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal, .reveal-child { opacity: 1; transform: none; transition: none; }
+}
+
+/* ── Buttons ───────────────────────────────────────────────── */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 26px;
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  border: 2px solid transparent;
+  border-radius: 0;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background 0.15s, color 0.15s, border-color 0.15s;
+  text-decoration: none;
+}
+
+/* Blue primary */
+.btn--primary {
+  background: var(--blue);
+  color: var(--white);
+  border-color: var(--blue);
+}
+.btn--primary:hover { background: #005ecc; border-color: #005ecc; }
+
+/* Outline dark */
+.btn--outline-dark {
+  background: transparent;
+  color: var(--black);
+  border-color: var(--black);
+}
+.btn--outline-dark:hover { background: var(--black); color: var(--white); }
+
+/* Outline blue */
+.btn--outline-blue {
+  background: transparent;
+  color: var(--blue);
+  border-color: var(--blue);
+}
+.btn--outline-blue:hover { background: var(--blue); color: var(--white); }
+
+/* White (for blue bg sections) */
+.btn--white {
+  background: var(--white);
+  color: var(--blue);
+  border-color: var(--white);
+}
+.btn--white:hover { background: var(--blue-light); border-color: var(--blue-light); }
+
+/* Nav CTA */
+.btn--nav {
+  background: var(--blue);
+  color: var(--white);
+  border-color: var(--blue);
+  padding: 10px 20px;
+  font-size: 0.75rem;
+}
+.btn--nav:hover { background: #005ecc; border-color: #005ecc; }
+
+/* Submit */
+.btn--submit {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  background: var(--white);
+  color: var(--blue);
+  border-color: var(--white);
+  font-size: 0.9rem;
+  padding: 14px 32px;
+}
+.btn--submit:hover { background: var(--blue-light); border-color: var(--blue-light); }
+
+/* ── Nav ───────────────────────────────────────────────────── */
+.nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  height: var(--nav-h);
+  background: var(--white);
+  border-bottom: 1px solid var(--black);
+  transition: box-shadow 0.25s;
+}
+.nav.scrolled { box-shadow: 0 2px 16px rgba(0,0,0,0.08); }
+.nav__inner {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 0 var(--gutter);
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.nav__logo {
+  display: flex;
+  align-items: center;
+}
+.nav__logo img { height: 30px; width: auto; }
+.nav__logo-text {
+  font-family: var(--font-sans);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--black);
+  letter-spacing: 0.02em;
+}
+.nav__logo-text sup { font-size: 0.55em; vertical-align: super; }
+
+/* ── Hero ── TRUE SPLIT ─────────────────────────────────────── */
+.hero {
+  background: var(--white);
+  padding-top: var(--nav-h);
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+}
+/* Full-width blue rule sits above the split columns */
+.hero__rule {
+  width: 100%;
+  height: 2px;
+  background: var(--blue);
+  flex-shrink: 0;
+}
+/* Layered hero: solid white text over an image that starts near the headline */
+.hero__layout {
+  flex: 1;
+  display: flex;
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  width: 100%;
+}
+.hero__text-col {
+  display: flex;
+  align-items: center;
+  padding: 72px var(--gutter) 60px clamp(72px, 7vw, 132px);
+  position: relative;
+  z-index: 2;
+  width: min(46%, 640px);
+}
+.hero__text {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  max-width: 520px;
+  width: 100%;
+}
+/* Image sits close to the copy and fades under the white reading area */
+.hero__img-col {
+  overflow: hidden;
+  position: absolute;
+  inset: 0 0 0 24%;
+  z-index: 0;
+}
+.hero__img-col::before {
+  content: '';
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 24%;
+  background: linear-gradient(to right, var(--white) 0%, rgba(255,255,255,0.92) 34%, rgba(255,255,255,0) 100%);
+  z-index: 1;
+  pointer-events: none;
+}
+.hero__img-col img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+  display: block;
+}
+.hero__eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  font-weight: 400;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--grey);
+}
+.hero__h1 {
+  font-family: var(--font-sans);
+  font-size: clamp(52px, 6vw, 80px);
+  font-weight: 700;
+  line-height: 1.0;
+  letter-spacing: -0.02em;
+  color: var(--black);
+}
+.hero__nowrap { white-space: nowrap; }
+.hero__sub {
+  font-family: var(--font-sans);
+  font-size: 1.05rem;
+  font-weight: 300;
+  color: var(--grey);
+  max-width: 500px;
+  line-height: 1.7;
+}
+.hero__ctas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.hero__qualifier {
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.08em;
+  color: var(--grey);
+  border-top: 1px solid rgba(0,0,0,0.15);
+  padding-top: 20px;
+}
+
+/* Hero bottom rule */
+.hero__bottom-rule {
+  position: relative;
+  z-index: 2;
+  border: none;
+  border-top: 1px solid var(--black);
+  margin: 0;
+}
+
+/* ── Ticker ─────────────────────────────────────────────────── */
+.ticker {
+  background: var(--black);
+  overflow: hidden;
+  padding: 13px 0;
+  position: relative;
+  z-index: 2;
+  flex-shrink: 0;
+}
+.ticker__inner {
+  display: flex;
+  gap: 0;
+  white-space: nowrap;
+  animation: ticker 40s linear infinite;
+}
+.ticker__inner span {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.65);
+  flex-shrink: 0;
+  padding: 0 20px;
+}
+.ticker__inner .sep {
+  color: var(--blue);
+  padding: 0 4px;
+}
+@keyframes ticker {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .ticker__inner { animation: none; }
+}
+
+/* ── Trust Bar ─────────────────────────────────────────────── */
+.trust {
+  background: var(--white);
+  padding: 88px 0;
+  border-bottom: 1px solid var(--grey-bdr);
+}
+.trust__label {
+  font-family: var(--font-mono);
+  font-size: 0.76rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--blue);
+  text-align: center;
+  margin-bottom: 14px;
+}
+.trust__stat {
+  font-family: var(--font-sans);
+  font-weight: 300;
+  font-size: clamp(1.05rem, 2.4vw, 1.55rem);
+  letter-spacing: -0.01em;
+  text-align: center;
+  color: var(--black);
+  margin-bottom: 56px;
+}
+.trust__stat strong { font-weight: 500; }
+.trust__logos {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 52px 72px;
+  align-items: center;
+  justify-items: center;
+  max-width: 1180px;
+  margin: 0 auto;
+}
+/* Image logos */
+.trust__logo-img {
+  width: 100%;
+  height: 76px;
+  max-width: 240px;
+  object-fit: contain;
+  display: block;
+  filter: grayscale(1) contrast(1.08) opacity(0.92);
+  mix-blend-mode: multiply;
+  transition: filter 0.2s, transform 0.2s;
+}
+.trust__logo--square { height: 96px; max-width: 132px; }
+.trust__logo--partner { height: 84px; max-width: 270px; }
+.trust__logo--mccann { height: 68px; max-width: 260px; }
+.trust__logo-img:hover { filter: grayscale(1) contrast(1.15) opacity(1); transform: translateY(-2px); }
+
+/* ── Problem ───────────────────────────────────────────────── */
+.problem {
+  background: var(--white);
+  padding: 96px 0;
+  border-top: 2px solid var(--black);
+}
+.problem__header {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 56px;
+  margin-bottom: 72px;
+  align-items: start;
+}
+.problem__h2 {
+  font-family: var(--font-sans);
+  font-size: clamp(30px, 3.5vw, 48px);
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  color: var(--black);
+  margin-top: 12px;
+}
+.problem__source {
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  color: var(--grey);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-top: 16px;
+}
+.problem__copy {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding-top: 48px;
+}
+.problem__copy p {
+  font-size: 0.95rem;
+  font-weight: 300;
+  color: var(--grey);
+  line-height: 1.75;
+}
+.problem__copy strong {
+  font-weight: 700;
+  color: var(--black);
+}
+
+/* Swiss stat bars */
+.problem__bars {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+.stat {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 6px;
+}
+.stat__top {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 16px;
+}
+.stat__pct {
+  font-family: var(--font-mono);
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 700;
+  color: var(--black);
+  line-height: 1;
+  flex-shrink: 0;
+}
+.stat__label {
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: var(--black);
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+}
+.stat__track {
+  height: 3px;
+  background: var(--grey-bdr);
+  position: relative;
+  overflow: hidden;
+}
+.stat__fill {
+  position: absolute;
+  left: 0; top: 0; bottom: 0;
+  width: 0;
+  background: var(--blue);
+  transition: width 1.4s var(--ease-out);
+}
+.in-view .stat__fill { width: var(--w); }
+
+/* ── Solution ──────────────────────────────────────────────── */
+.solution {
+  background: var(--white);
+  padding: 96px 0;
+  border-top: 2px solid var(--black);
+}
+.solution__header {
+  max-width: 680px;
+  margin-bottom: 64px;
+}
+.solution__h2 {
+  font-family: var(--font-sans);
+  font-size: clamp(28px, 3.5vw, 46px);
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  color: var(--black);
+  margin-top: 12px;
+  margin-bottom: 20px;
+}
+.solution__tagline {
+  font-size: 0.95rem;
+  font-weight: 300;
+  color: var(--grey);
+  line-height: 1.75;
+}
+.solution__cols {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  border: 1px solid var(--grey-bdr);
+}
+.solution__col {
+  padding: 40px 36px;
+  border-right: 1px solid var(--grey-bdr);
+  transition: background 0.2s;
+}
+.solution__col:last-child { border-right: none; }
+.solution__col:hover { background: var(--blue-light); }
+.sol-icon { margin-bottom: 24px; }
+.solution__col h3 {
+  font-family: var(--font-sans);
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  color: var(--black);
+}
+.solution__col ul { display: flex; flex-direction: column; gap: 10px; }
+.solution__col li {
+  font-size: 0.875rem;
+  font-weight: 300;
+  color: var(--grey);
+  padding-left: 16px;
+  position: relative;
+  line-height: 1.5;
+}
+.solution__col li::before {
+  content: '—';
+  position: absolute;
+  left: 0;
+  color: var(--blue);
+  font-size: 0.8rem;
+}
+
+/* ── Audience ──────────────────────────────────────────────── */
+.audience {
+  background: var(--white);
+  padding: 96px 0;
+  border-top: 2px solid var(--black);
+}
+.audience__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2px;
+  margin-top: 48px;
+}
+.audience__card {
+  padding: 56px 48px;
+}
+.audience__card--a {
+  background: var(--blue-light);
+  border: 1px solid rgba(0,122,255,0.2);
+}
+.audience__card--b {
+  background: var(--white);
+  border: 1px solid var(--grey-bdr);
+}
+.aud-label {
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--blue);
+  margin-bottom: 16px;
+  display: block;
+}
+.audience__card h3 {
+  font-family: var(--font-sans);
+  font-size: clamp(18px, 2.2vw, 26px);
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  margin-bottom: 28px;
+  color: var(--black);
+}
+.audience__card ul {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 36px;
+}
+.audience__card li {
+  font-size: 0.9rem;
+  font-weight: 300;
+  line-height: 1.55;
+  padding-left: 20px;
+  position: relative;
+  color: var(--grey);
+}
+.audience__card li::before {
+  content: '→';
+  position: absolute;
+  left: 0;
+  color: var(--blue);
+  font-size: 0.8rem;
+}
+.aud-clients {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  border-top: 1px solid var(--grey-bdr);
+  padding-top: 24px;
+}
+.aud-clients span {
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--blue);
+  border: 1px solid var(--blue);
+  padding: 4px 10px;
+  opacity: 0.75;
+}
+
+/* ── Work ──────────────────────────────────────────────────── */
+.work {
+  background: var(--white);
+  padding: 96px 0;
+  border-top: 2px solid var(--black);
+}
+.work__header {
+  max-width: 600px;
+  margin-bottom: 56px;
+}
+.work__h2 {
+  font-family: var(--font-sans);
+  font-size: clamp(36px, 5vw, 64px);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.0;
+  color: var(--black);
+  margin-top: 12px;
+  margin-bottom: 16px;
+}
+.work__sub {
+  font-size: 0.95rem;
+  font-weight: 300;
+  color: var(--grey);
+}
+.work__grid {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  background: var(--grey-bdr);
+  border: 1px solid var(--grey-bdr);
+}
+.work__card {
+  background: var(--white);
+  display: grid;
+  grid-template-columns: 58% 42%;
+  min-height: 460px;
+  transition: background 0.2s;
+}
+.work__card:nth-child(even) {
+  grid-template-columns: 42% 58%;
+}
+.work__card:nth-child(even) .work__vis {
+  order: 2;
+  border-right: none;
+  border-left: 1px solid var(--grey-bdr);
+}
+.work__card:nth-child(even) .work__body { order: 1; }
+.work__card:hover { background: var(--grey-light); }
+.work__vis {
+  overflow: hidden;
+  display: block;
+  border-right: 1px solid var(--grey-bdr);
+  background: var(--grey-light);
+}
+.work__vis img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.55s ease;
+}
+.work__card:hover .work__vis img { transform: scale(1.04); }
+.work__body {
+  padding: 52px 52px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.work__cat {
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--blue);
+  margin-bottom: 12px;
+}
+.work__name {
+  font-family: var(--font-sans);
+  font-size: clamp(1.5rem, 2vw, 2rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--black);
+  margin-bottom: 16px;
+  line-height: 1.1;
+}
+.work__desc {
+  font-size: 1rem;
+  font-weight: 300;
+  color: var(--grey);
+  line-height: 1.7;
+  margin-bottom: 28px;
+}
+.work__badge {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--white);
+  background: var(--red);
+  padding: 10px 18px;
+  align-self: flex-start;
+}
+
+/* ── Testimonials ──────────────────────────────────────────── */
+.testimonials {
+  background: var(--grey-light);
+  padding: 96px 0;
+  border-top: 1px solid var(--grey-bdr);
+}
+.testi__header { margin-bottom: 56px; }
+.testi__h2 {
+  font-family: var(--font-sans);
+  font-size: clamp(28px, 3.5vw, 44px);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--black);
+  margin-top: 12px;
+}
+.testi__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: var(--grey-bdr);
+  border: 1px solid var(--grey-bdr);
+  margin-bottom: 32px;
+}
+.testi__card {
+  background: var(--white);
+  padding: 40px 36px;
+  display: flex;
+  flex-direction: column;
+  transition: background 0.2s;
+}
+.testi__card:hover { background: var(--blue-light); }
+.testi__mark {
+  font-family: var(--font-sans);
+  font-size: 3.5rem;
+  font-weight: 700;
+  color: var(--blue);
+  line-height: 0.8;
+  margin-bottom: 20px;
+  opacity: 0.6;
+}
+.testi__card blockquote {
+  font-size: 0.92rem;
+  font-weight: 300;
+  color: #333;
+  line-height: 1.8;
+  font-style: italic;
+  flex: 1;
+  margin-bottom: 28px;
+}
+.testi__card footer {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  padding-top: 20px;
+  border-top: 1px solid var(--grey-bdr);
+}
+.testi__card footer strong {
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: var(--black);
+}
+.testi__card footer span {
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--grey);
+}
+.testi__more {
+  font-size: 0.85rem;
+  font-weight: 300;
+  color: var(--grey);
+}
+.testi__more a {
+  color: var(--blue);
+  font-weight: 700;
+  text-decoration: underline;
+}
+.testi__more a:hover { color: #005ecc; }
+
+/* ── Offer / Engagements ───────────────────────────────────── */
+.offer {
+  background: var(--white);
+  padding: 96px 0;
+  border-top: 2px solid var(--black);
+}
+.offer__header { margin-bottom: 56px; }
+.offer__h2 {
+  font-family: var(--font-sans);
+  font-size: clamp(28px, 3.5vw, 46px);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.05;
+  color: var(--black);
+  margin-top: 12px;
+  margin-bottom: 16px;
+}
+.offer__sub {
+  font-size: 0.95rem;
+  font-weight: 300;
+  color: var(--grey);
+  max-width: 560px;
+}
+.offer__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: var(--grey-bdr);
+  border: 1px solid var(--grey-bdr);
+}
+.offer__card {
+  background: var(--white);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+.offer__card--feat {
+  background: var(--blue);
+  color: var(--white);
+}
+.offer__badge {
+  position: absolute;
+  top: -1px;
+  left: -1px;
+  background: var(--red);
+  color: var(--white);
+  font-family: var(--font-mono);
+  font-size: 0.58rem;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  padding: 5px 14px;
+}
+.offer__top {
+  padding: 40px 32px 24px;
+  border-bottom: 1px solid var(--grey-bdr);
+}
+.offer__card--feat .offer__top { border-bottom-color: rgba(255,255,255,0.2); }
+.offer__dur {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--blue);
+  margin-bottom: 12px;
+}
+.offer__card--feat .offer__dur { color: rgba(255,255,255,0.7); }
+.offer__top h3 {
+  font-family: var(--font-sans);
+  font-size: 1.15rem;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  color: var(--black);
+}
+.offer__card--feat .offer__top h3 { color: var(--white); }
+.offer__body {
+  flex: 1;
+  padding: 28px 32px;
+}
+.offer__body p {
+  font-size: 0.875rem;
+  font-weight: 300;
+  line-height: 1.7;
+  color: var(--grey);
+  margin-bottom: 20px;
+}
+.offer__card--feat .offer__body p { color: rgba(255,255,255,0.75); }
+.offer__body ul { display: flex; flex-direction: column; gap: 10px; }
+.offer__body li {
+  font-size: 0.85rem;
+  font-weight: 300;
+  line-height: 1.5;
+  padding-left: 18px;
+  position: relative;
+  color: #444;
+}
+.offer__card--feat .offer__body li { color: rgba(255,255,255,0.85); }
+.offer__body li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: var(--blue);
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+.offer__card--feat .offer__body li::before { color: rgba(255,255,255,0.7); }
+.offer__foot {
+  padding: 24px 32px 36px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  border-top: 1px solid var(--grey-bdr);
+}
+.offer__card--feat .offer__foot { border-top-color: rgba(255,255,255,0.2); }
+.offer__cost {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--grey);
+}
+.offer__card--feat .offer__cost { color: rgba(255,255,255,0.55); }
+
+/* ── Process ───────────────────────────────────────────────── */
+.process {
+  background: var(--white);
+  padding: 96px 0;
+  border-top: 2px solid var(--black);
+}
+.process__header { margin-bottom: 56px; }
+.process__h2 {
+  font-family: var(--font-sans);
+  font-size: clamp(28px, 3.5vw, 46px);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.05;
+  color: var(--black);
+  margin-top: 12px;
+  margin-bottom: 16px;
+}
+.process__sub {
+  font-size: 0.95rem;
+  font-weight: 300;
+  color: var(--grey);
+  max-width: 560px;
+}
+.process__steps {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  border: 1px solid var(--grey-bdr);
+}
+.process__step {
+  padding: 36px 28px;
+  border-right: 1px solid var(--grey-bdr);
+  position: relative;
+  transition: background 0.2s;
+}
+.process__step:last-child { border-right: none; }
+.process__step:hover { background: var(--grey-light); }
+.process__num {
+  font-family: var(--font-mono);
+  font-size: 3.5rem;
+  font-weight: 700;
+  color: var(--grey-bdr);
+  line-height: 1;
+  margin-bottom: 16px;
+}
+.process__step h3 {
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--black);
+  margin-bottom: 12px;
+}
+.process__step p {
+  font-size: 0.825rem;
+  font-weight: 300;
+  color: var(--grey);
+  line-height: 1.65;
+  margin-bottom: 20px;
+}
+.process__step ul {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.process__step li {
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--grey);
+  padding-left: 12px;
+  position: relative;
+}
+.process__step li::before {
+  content: '—';
+  position: absolute;
+  left: 0;
+  color: var(--blue);
+  opacity: 0.7;
+}
+.process__arrow {
+  position: absolute;
+  right: -14px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1.2rem;
+  color: var(--blue);
+  z-index: 2;
+  font-weight: 300;
+  line-height: 1;
+}
+
+/* ── Qualify ───────────────────────────────────────────────── */
+.qualify {
+  background: var(--grey-light);
+  padding: 96px 0;
+  border-top: 1px solid var(--grey-bdr);
+}
+.qualify__header { margin-bottom: 56px; }
+.qualify__h2 {
+  font-family: var(--font-sans);
+  font-size: clamp(28px, 3.5vw, 46px);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.05;
+  color: var(--black);
+  margin-top: 12px;
+}
+.qualify__grid {
+  display: grid;
+  grid-template-columns: 1fr 1px 1fr;
+  gap: 48px;
+}
+.qualify__div {
+  background: var(--grey-bdr);
+  align-self: stretch;
+}
+.qualify__col h3 {
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 24px;
+  color: var(--black);
+}
+.qualify__col ul {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.qualify__col li {
+  font-size: 0.9rem;
+  font-weight: 300;
+  line-height: 1.55;
+  color: #444;
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+.qcheck {
+  color: var(--blue);
+  font-weight: 700;
+  font-size: 0.85rem;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+.qx {
+  color: var(--grey);
+  font-weight: 700;
+  font-size: 0.85rem;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+.qualify__col--no li { color: #888; }
+
+/* ── Contact / Form ────────────────────────────────────────── */
+.contact {
+  background: var(--blue);
+  padding: 96px 0;
+}
+.contact .container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: start;
+}
+.contact__h2 {
+  font-family: var(--font-sans);
+  font-size: clamp(30px, 3.8vw, 50px);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--white);
+  line-height: 1.05;
+  margin-bottom: 20px;
+}
+.contact__sub {
+  font-size: 0.95rem;
+  font-weight: 300;
+  color: rgba(255,255,255,0.85);
+  line-height: 1.7;
+  margin-bottom: 48px;
+}
+.contact__founders {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+.founder {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+}
+.founder__av {
+  width: 48px;
+  height: 48px;
+  background: rgba(255,255,255,0.15);
+  border: 1px solid rgba(255,255,255,0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--white);
+  letter-spacing: 0.05em;
+  flex-shrink: 0;
+}
+.founder__info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.founder__info strong {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--white);
+}
+.founder__info span {
+  font-size: 0.72rem;
+  color: rgba(255,255,255,0.6);
+  font-family: var(--font-mono);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+.founder__info a {
+  font-size: 0.8rem;
+  color: rgba(255,255,255,0.85);
+  font-family: var(--font-mono);
+  letter-spacing: 0.06em;
+  margin-top: 4px;
+  text-decoration: underline;
+}
+.founder__info a:hover { color: var(--white); }
+
+/* Form */
+.contact__form {
+  background: rgba(0,0,0,0.12);
+  border: 1px solid rgba(255,255,255,0.25);
+  padding: 40px;
+}
+.contact__disclaimer {
+  margin-top: 16px;
+  font-size: 0.72rem;
+  line-height: 1.5;
+  color: rgba(255,255,255,0.6);
+}
+.contact__disclaimer a {
+  color: rgba(255,255,255,0.85);
+  text-decoration: underline;
+}
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.form-group label {
+  font-size: 0.68rem;
+  font-family: var(--font-mono);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.75);
+}
+.form-group input,
+.form-group select,
+.form-group textarea {
+  background: rgba(255,255,255,0.95);
+  border: 1px solid rgba(255,255,255,0.9);
+  border-radius: 0;
+  color: var(--black);
+  padding: 11px 14px;
+  font-size: 0.875rem;
+  font-family: var(--font-sans);
+  font-weight: 300;
+  outline: none;
+  transition: border-color 0.15s, background 0.15s;
+  width: 100%;
+  appearance: none;
+  -webkit-appearance: none;
+}
+.form-group input::placeholder,
+.form-group textarea::placeholder { color: #999; }
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  border-color: var(--white);
+  background: var(--white);
+  box-shadow: 0 0 0 2px rgba(255,255,255,0.3);
+}
+.form-group select {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23666' stroke-width='1.5' fill='none' stroke-linecap='square'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+  background-color: rgba(255,255,255,0.95);
+  padding-right: 36px;
+  cursor: pointer;
+}
+.form-group select option { background: var(--white); color: var(--black); }
+.form-group textarea { resize: vertical; min-height: 100px; line-height: 1.6; }
+.form-note {
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.45);
+  text-align: center;
+  margin-top: 14px;
+}
+
+/* ── Gravity Forms — matched to page design ────────────────── */
+
+/* Reset GF wrapper defaults */
+#gform_wrapper_1 { margin: 0; }
+#gform_wrapper_1 * { box-sizing: border-box; }
+
+/* Form title */
+#gform_wrapper_1 .gform_heading { margin-bottom: 24px; }
+#gform_wrapper_1 .gform_title {
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--white);
+  margin: 0 0 4px;
+}
+#gform_wrapper_1 .gform_description {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.1em;
+  color: rgba(255,255,255,0.55);
+}
+
+/* Fields grid — 2 columns */
+#gform_1 .gform_fields {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  list-style: none;
+  padding: 0;
+  margin: 0 0 16px;
+}
+#gform_1 .gfield { margin: 0; padding: 0; display: flex; flex-direction: column; gap: 6px; }
+
+/* GF 2.5+ half/full width classes (set via drag layout in GF admin) */
+#gform_1 .gfield--width-full  { grid-column: 1 / -1; }
+#gform_1 .gfield--width-half  { grid-column: span 1; }
+
+/* Textarea, paragraph, html, and section fields always span full width */
+#gform_1 .gfield_type_textarea,
+#gform_1 .gfield_type_paragraph,
+#gform_1 .gfield_type_html,
+#gform_1 .gfield_type_section { grid-column: 1 / -1; }
+
+/* Override GF Small/Medium/Large — inputs always fill their grid cell */
+#gform_1 input.small,
+#gform_1 input.medium,
+#gform_1 input.large,
+#gform_1 select.small,
+#gform_1 select.medium,
+#gform_1 select.large { width: 100%; }
+
+/* Labels */
+#gform_1 .gfield_label {
+  font-size: 0.68rem;
+  font-family: var(--font-mono);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.75);
+  font-weight: 400;
+  margin: 0;
+}
+#gform_1 .gfield_required { color: rgba(255,255,255,0.75); margin-left: 2px; }
+
+/* Inputs, selects, textarea */
+#gform_1 input[type="text"],
+#gform_1 input[type="email"],
+#gform_1 input[type="tel"],
+#gform_1 input[type="number"],
+#gform_1 input[type="url"],
+#gform_1 select,
+#gform_1 textarea {
+  background: rgba(255,255,255,0.95);
+  border: 1px solid rgba(255,255,255,0.9);
+  border-radius: 0;
+  color: var(--black);
+  padding: 11px 14px;
+  font-size: 0.875rem;
+  font-family: var(--font-sans);
+  font-weight: 300;
+  outline: none;
+  transition: border-color 0.15s, background 0.15s;
+  width: 100%;
+  appearance: none;
+  -webkit-appearance: none;
+  box-shadow: none;
+}
+#gform_1 input::placeholder,
+#gform_1 textarea::placeholder { color: #999; }
+#gform_1 input[type="text"]:focus,
+#gform_1 input[type="email"]:focus,
+#gform_1 input[type="tel"]:focus,
+#gform_1 input[type="number"]:focus,
+#gform_1 input[type="url"]:focus,
+#gform_1 select:focus,
+#gform_1 textarea:focus {
+  border-color: var(--white);
+  background: var(--white);
+  color: var(--black);
+  box-shadow: 0 0 0 2px rgba(255,255,255,0.3);
+}
+
+/* Select — custom chevron */
+#gform_1 select {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23666' stroke-width='1.5' fill='none' stroke-linecap='square'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+  background-color: rgba(255,255,255,0.95);
+  padding-right: 36px;
+  cursor: pointer;
+}
+#gform_1 select option { background: var(--white); color: var(--black); }
+#gform_1 textarea { resize: vertical; min-height: 100px; line-height: 1.6; }
+
+/* Ginput containers — strip GF default margins */
+#gform_1 .ginput_container { margin: 0; }
+
+/* Submit button */
+#gform_1 .gform_footer,
+#gform_1 .gform_page_footer { padding: 0; margin: 0; }
+#gform_1 input[type="submit"],
+#gform_1 .gform_button {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  background: var(--white);
+  color: var(--blue);
+  border: 2px solid var(--white);
+  border-radius: 0;
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 14px 32px;
+  cursor: pointer;
+  transition: background 0.15s, border-color 0.15s;
+  appearance: none;
+  -webkit-appearance: none;
+}
+#gform_1 input[type="submit"]:hover,
+#gform_1 .gform_button:hover { background: var(--blue-light); border-color: var(--blue-light); }
+
+/* Validation errors */
+#gform_wrapper_1 .validation_error {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #ff6b6b;
+  border: 1px solid rgba(255,107,107,0.4);
+  background: rgba(255,107,107,0.08);
+  padding: 12px 16px;
+  margin-bottom: 16px;
+}
+#gform_1 .gfield_error input,
+#gform_1 .gfield_error select,
+#gform_1 .gfield_error textarea { border-color: #ff6b6b; }
+#gform_1 .gfield_validation_message,
+#gform_1 .validation_message {
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #ff6b6b;
+  margin-top: 2px;
+  padding: 0;
+  background: none;
+  border: none;
+}
+
+/* Confirmation message */
+.gform_confirmation_wrapper {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--white);
+  text-align: center;
+  padding: 40px 20px;
+}
+
+/* Mobile — collapse to single column */
+@media (max-width: 600px) {
+  #gform_1 .gform_fields { grid-template-columns: 1fr; }
+  #gform_1 .gfield,
+  #gform_1 .gfield--width-half { grid-column: 1 / -1; }
+}
+
+/* ── FAQ ───────────────────────────────────────────────────── */
+.faq {
+  background: var(--white);
+  padding: 96px 0;
+  border-top: 1px solid var(--grey-bdr);
+}
+.faq__header { margin-bottom: 48px; }
+.faq__h2 {
+  font-family: var(--font-sans);
+  font-size: clamp(28px, 3.5vw, 44px);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--black);
+  margin-top: 12px;
+}
+.faq__list {
+  border-top: 1px solid var(--grey-bdr);
+  max-width: 820px;
+}
+.faq__item {
+  border-bottom: 1px solid var(--grey-bdr);
+}
+.faq__q {
+  list-style: none;
+  padding: 22px 0;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--black);
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  user-select: none;
+  transition: color 0.15s;
+}
+.faq__q::-webkit-details-marker { display: none; }
+.faq__q::after {
+  content: '+';
+  font-family: var(--font-sans);
+  font-size: 1.4rem;
+  font-weight: 300;
+  color: var(--blue);
+  flex-shrink: 0;
+  transition: transform 0.22s var(--ease-out);
+  line-height: 1;
+}
+.faq__item[open] .faq__q { color: var(--blue); }
+.faq__item[open] .faq__q::after { transform: rotate(45deg); }
+.faq__a {
+  padding: 0 0 24px;
+}
+.faq__a p {
+  font-size: 0.9rem;
+  font-weight: 300;
+  color: var(--grey);
+  line-height: 1.8;
+}
+
+/* ── Footer ────────────────────────────────────────────────── */
+.footer {
+  background: var(--black);
+  padding: 72px 0 36px;
+}
+.footer__top {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  margin-bottom: 56px;
+  padding-bottom: 48px;
+  border-bottom: 1px solid #222;
+}
+.footer__brand img {
+  height: 28px;
+  width: auto;
+  filter: brightness(0) invert(1);
+  margin-bottom: 20px;
+}
+.footer__logo-fb {
+  font-family: var(--font-sans);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--white);
+  letter-spacing: 0.04em;
+  margin-bottom: 20px;
+  display: none;
+}
+.footer__logo-fb sup { font-size: 0.55em; vertical-align: super; }
+.footer__brand p {
+  font-size: 0.875rem;
+  font-weight: 300;
+  color: rgba(255,255,255,0.6);
+  line-height: 1.7;
+  max-width: 320px;
+  margin-bottom: 12px;
+}
+.footer__loc {
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.38) !important;
+}
+.footer__contacts {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+}
+.footer__contact {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.footer__contact strong {
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: var(--white);
+  margin-bottom: 2px;
+}
+.footer__contact span {
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.42);
+  margin-bottom: 8px;
+}
+.footer__contact a {
+  font-size: 0.8rem;
+  color: rgba(255,255,255,0.6);
+  transition: color 0.15s;
+  line-height: 1.9;
+}
+.footer__contact a:hover { color: var(--blue); }
+.footer__bot {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+}
+.footer__bot p {
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.35);
+}
+.footer__bot a {
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.4);
+  transition: color 0.15s;
+}
+.footer__bot a:hover { color: var(--blue); }
+
+/* ── Mobile Responsive ─────────────────────────────────────── */
+@media (max-width: 900px) {
+  .process__steps {
+    grid-template-columns: 1fr 1fr;
+  }
+  .process__step { border-bottom: 1px solid var(--grey-bdr); }
+  .process__step:nth-child(2) { border-right: none; }
+  .process__step:nth-child(4) { border-right: none; border-bottom: none; }
+  .process__step:nth-child(3) { border-bottom: none; }
+  .process__arrow { display: none; }
+}
+
+@media (max-width: 768px) {
+  :root { --gutter: 20px; --nav-h: 56px; }
+
+  /* Nav */
+  .nav__logo img { height: 24px; }
+  .btn--nav { padding: 8px 16px; font-size: 0.7rem; }
+
+  /* Hero — mobile: text first, image below */
+  .hero { min-height: auto; }
+  .hero__layout { display: flex; flex-direction: column; }
+  .hero__text-col { padding: 48px var(--gutter) 40px; order: 1; width: 100%; }
+  .hero__text { max-width: 100%; }
+  .hero__img-col { position: relative; inset: auto; height: 280px; order: 2; width: 100%; }
+  .hero__img-col::before { display: none; }
+  .hero__h1 { font-size: clamp(44px, 11vw, 64px); }
+  .hero__ctas { flex-direction: column; }
+  .hero__ctas .btn { text-align: center; justify-content: center; }
+
+  /* Trust logos */
+  .trust { padding: 64px 0; }
+  .trust__label { margin-bottom: 12px; }
+  .trust__stat { margin-bottom: 40px; }
+  .trust__logos { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 34px 32px; }
+  .trust__logo-img { height: 54px; max-width: 170px; }
+  .trust__logo--square { height: 72px; max-width: 100px; }
+  .trust__logo--partner { height: 60px; max-width: 180px; }
+  .trust__logo--mccann { height: 52px; max-width: 190px; }
+
+  /* Problem */
+  .problem { padding: 72px 0; }
+  .problem__header { grid-template-columns: 1fr; gap: 32px; margin-bottom: 48px; }
+  .problem__copy { padding-top: 0; }
+
+  /* Solution */
+  .solution { padding: 72px 0; }
+  .solution__cols { grid-template-columns: 1fr; }
+  .solution__col { border-right: none; border-bottom: 1px solid var(--grey-bdr); }
+  .solution__col:last-child { border-bottom: none; }
+
+  /* Audience */
+  .audience { padding: 72px 0; }
+  .audience__grid { grid-template-columns: 1fr; }
+  .audience__card { padding: 40px 28px; }
+
+  /* Work */
+  .work { padding: 72px 0; }
+  .work__card,
+  .work__card:nth-child(even) { grid-template-columns: 1fr; min-height: auto; }
+  .work__card:nth-child(even) .work__vis,
+  .work__card:nth-child(even) .work__body { order: unset; }
+  .work__vis { min-height: 260px; border-right: none; border-left: none !important; border-bottom: 1px solid var(--grey-bdr); }
+  .work__body { padding: 32px 28px 36px; justify-content: flex-start; }
+
+  /* Testimonials */
+  .testimonials { padding: 72px 0; }
+  .testi__grid { grid-template-columns: 1fr; }
+
+  /* Offer */
+  .offer { padding: 72px 0; }
+  .offer__grid { grid-template-columns: 1fr; background: none; border: none; gap: 1px; }
+  .offer__card { border: 1px solid var(--grey-bdr); }
+  .offer__card--feat { border-color: var(--blue); }
+
+  /* Process */
+  .process { padding: 72px 0; }
+  .process__steps { grid-template-columns: 1fr; border: none; }
+  .process__step {
+    border: 1px solid var(--grey-bdr);
+    border-bottom: none;
+    border-right: 1px solid var(--grey-bdr) !important;
+  }
+  .process__step:last-child { border-bottom: 1px solid var(--grey-bdr); }
+  .process__arrow { display: none; }
+
+  /* Qualify */
+  .qualify { padding: 72px 0; }
+  .qualify__grid { grid-template-columns: 1fr; }
+  .qualify__div { height: 1px; }
+
+  /* Contact */
+  .contact { padding: 72px 0; }
+  .contact .container { grid-template-columns: 1fr; gap: 48px; }
+  .contact__form { padding: 28px 20px; }
+  .form-row { grid-template-columns: 1fr; }
+
+  /* FAQ */
+  .faq { padding: 72px 0; }
+
+  /* Footer */
+  .footer__top { grid-template-columns: 1fr; gap: 40px; }
+  .footer__contacts { grid-template-columns: 1fr; gap: 28px; }
+  .footer__bot { flex-direction: column; align-items: flex-start; gap: 8px; }
+}
+
+/* ── Section CTA strip ─────────────────────────────────────── */
+.section-cta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 48px 0 0;
+  border-top: 1px solid var(--grey-bdr);
+  margin-top: 56px;
+  flex-wrap: wrap;
+}
+.section-cta__copy {
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  font-weight: 300;
+  color: var(--grey);
+  line-height: 1.5;
+}
+.section-cta__copy strong {
+  display: block;
+  font-weight: 700;
+  font-size: 1.05rem;
+  color: var(--black);
+  margin-bottom: 4px;
+}
+@media (max-width: 768px) {
+  .section-cta { flex-direction: column; align-items: flex-start; }
+}
+
+/* ── Exit Popup ────────────────────────────────────────────── */
+.exit-popup-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.55);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  animation: epFadeIn 0.3s ease;
+}
+@keyframes epFadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+.exit-popup {
+  background: var(--white);
+  max-width: 820px;
+  width: 100%;
+  position: relative;
+  animation: epPopIn 0.35s var(--ease-out);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.25);
+}
+@keyframes epPopIn {
+  from { opacity: 0; transform: scale(0.94) translateY(16px); }
+  to   { opacity: 1; transform: scale(1) translateY(0); }
+}
+.exit-popup__close {
+  position: absolute;
+  top: 14px;
+  right: 18px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.6rem;
+  font-weight: 300;
+  color: var(--grey);
+  line-height: 1;
+  padding: 4px 8px;
+  transition: color 0.15s;
+  z-index: 2;
+}
+.exit-popup__close:hover { color: var(--black); }
+.exit-popup__content {
+  display: flex;
+  align-items: stretch;
+}
+.exit-popup__left {
+  flex: 1;
+  padding: 40px 40px 36px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.exit-popup__right {
+  width: 280px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f0f0f0;
+  padding: 24px 20px;
+}
+.exit-popup__brand {
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--black);
+}
+.exit-popup__headline {
+  font-family: var(--font-sans);
+  font-size: clamp(20px, 2.5vw, 26px);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+  color: var(--black);
+}
+.exit-popup__sub {
+  font-size: 0.95rem;
+  font-weight: 400;
+  color: var(--black);
+  line-height: 1.6;
+  margin-top: -4px;
+}
+.exit-popup__form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 4px;
+}
+.exit-popup__field input {
+  width: 100%;
+  padding: 13px 16px;
+  border: 1px solid var(--grey-bdr);
+  background: var(--white);
+  color: var(--black);
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  font-weight: 300;
+  outline: none;
+  transition: border-color 0.15s;
+  border-radius: 0;
+  -webkit-appearance: none;
+  appearance: none;
+}
+.exit-popup__field input::placeholder { color: #888; }
+.exit-popup__field input:focus { border-color: #007AFF; }
+.exit-popup__btn {
+  width: 100%;
+  padding: 14px 24px;
+  background: #007AFF;
+  color: var(--white);
+  border: 2px solid #007AFF;
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background 0.15s, border-color 0.15s;
+  border-radius: 0;
+}
+.exit-popup__btn:hover:not(:disabled) { background: #0062cc; border-color: #0062cc; }
+.exit-popup__btn:disabled { cursor: default; }
+.exit-popup__note {
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.08em;
+  color: var(--grey);
+  text-align: center;
+}
+.exit-popup__book {
+  width: 100%;
+  max-width: 200px;
+  display: block;
+  box-shadow: -6px 8px 24px rgba(0,0,0,0.28), -2px 2px 6px rgba(0,0,0,0.14);
+  transform: perspective(600px) rotateY(-7deg);
+}
+@media (max-width: 600px) {
+  .exit-popup__content { flex-direction: column; }
+  .exit-popup__right { width: 100%; padding: 20px; order: -1; }
+  .exit-popup__book { max-width: 120px; transform: none; margin: 0 auto; }
+  .exit-popup__left { padding: 28px 24px 24px; }
+  .exit-popup__headline { font-size: 1.15rem; }
+}
+</style>
+</head>
+<body>
+
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KM8JWMF"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+<!-- NAV -->
+<nav class="nav" id="nav">
+  <div class="nav__inner">
+    <a href="#" class="nav__logo" aria-label="Tomorrow Lab home">
+      <img src="https://tomorrow-lab.com/static/img/tomorrowlab.svg" alt="Tomorrow Lab" width="140" height="32"
+           onerror="this.style.display='none';this.nextElementSibling.style.display='inline'">
+      <span class="nav__logo-text" style="display:none">Tomorrow Lab<sup>®</sup></span>
+    </a>
+    <a href="#contact" class="btn btn--nav">Book a Discovery Call</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="top">
+  <div class="hero__rule" aria-hidden="true"></div>
+  <div class="hero__layout">
+    <div class="hero__text-col">
+      <div class="hero__text">
+        <p class="hero__eyebrow">Hardware Innovation Studio · Brooklyn NY · Est. 2010</p>
+        <h1 class="hero__h1">
+          The Hardware<br>
+          Team Behind<br>
+          <span class="hero__nowrap">Your Agency's</span><br>
+          Boldest<br>
+          Work.
+        </h1>
+        <p class="hero__sub">Tomorrow Lab is the white-label engineering and product partner for creative, digital, and software agencies — we build the connected and physical hardware your client contract depends on, under NDA and under your brand.</p>
+        <div class="hero__ctas">
+          <a href="#contact" class="btn btn--primary">Book a Discovery Call</a>
+          <a href="#work" class="btn btn--outline-dark">See Agency Work</a>
+        </div>
+        <p class="hero__qualifier">Best fit for creative, digital, and software agencies delivering connected or physical products for clients.</p>
+      </div>
+    </div>
+    <div class="hero__img-col">
+      <img src="https://tomorrowlabppc.com/wp-content/uploads/2026/05/tlabs-speaker.webp" alt="Tomorrow Lab hardware product development">
+    </div>
+  </div>
+  <hr class="hero__bottom-rule">
+  <!-- TICKER -->
+  <div class="ticker" aria-hidden="true">
+    <div class="ticker__inner">
+      <span>Strategy</span><span class="sep">×</span>
+      <span>Industrial Design</span><span class="sep">×</span>
+      <span>Mechanical Engineering</span><span class="sep">×</span>
+      <span>Electrical Engineering</span><span class="sep">×</span>
+      <span>Firmware</span><span class="sep">×</span>
+      <span>Supply Chain</span><span class="sep">×</span>
+      <span>Prototyping</span><span class="sep">×</span>
+      <span>Manufacturing</span><span class="sep">×</span>
+      <span>Strategy</span><span class="sep">×</span>
+      <span>Industrial Design</span><span class="sep">×</span>
+      <span>Mechanical Engineering</span><span class="sep">×</span>
+      <span>Electrical Engineering</span><span class="sep">×</span>
+      <span>Firmware</span><span class="sep">×</span>
+      <span>Supply Chain</span><span class="sep">×</span>
+      <span>Prototyping</span><span class="sep">×</span>
+      <span>Manufacturing</span><span class="sep">×</span>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST BAR -->
+<section class="trust reveal">
+  <div class="container">
+    <p class="trust__label">Trusted by leading brands and agencies</p>
+    <p class="trust__stat">Est. 2010 · The hardware team behind McCann, BBDO &amp; R/GA campaigns · Arduino &amp; Nordic official partner</p>
+    <div class="trust__logos">
+      <img class="trust__logo-img" src="https://tomorrowlabppc.com/wp-content/uploads/2026/05/google-logo.png" alt="Google">
+      <img class="trust__logo-img trust__logo--square" src="https://tomorrowlabppc.com/wp-content/uploads/2026/05/hasbro-logo.png" alt="Hasbro">
+      <img class="trust__logo-img" src="https://tomorrowlabppc.com/wp-content/uploads/2026/05/capital-one-logo.png" alt="Capital One">
+      <img class="trust__logo-img" src="https://tomorrowlabppc.com/wp-content/uploads/2026/05/otis-logo.png" alt="OTIS">
+      <img class="trust__logo-img trust__logo--mccann" src="https://tomorrowlabppc.com/wp-content/uploads/2026/05/mccann-logo.png" alt="McCann">
+      <img class="trust__logo-img" src="https://tomorrowlabppc.com/wp-content/uploads/2026/05/bbdo-logo.png" alt="BBDO">
+      <img class="trust__logo-img" src="https://tomorrowlabppc.com/wp-content/uploads/2026/05/360i-logo.png" alt="360i">
+      <img class="trust__logo-img" src="https://tomorrowlabppc.com/wp-content/uploads/2026/05/rga-logo.png" alt="R/GA">
+      <img class="trust__logo-img" src="https://tomorrowlabppc.com/wp-content/uploads/2026/05/uber-logo.webp" alt="Uber">
+      <img class="trust__logo-img" src="https://tomorrowlabppc.com/wp-content/uploads/2026/05/national-geographic-logo.png" alt="National Geographic">
+      <img class="trust__logo-img trust__logo--partner" src="https://tomorrowlabppc.com/wp-content/uploads/2026/05/arduino-logo.png" alt="Arduino">
+      <img class="trust__logo-img trust__logo--partner" src="https://tomorrowlabppc.com/wp-content/uploads/2026/05/nordic-logo.png" alt="Nordic Semiconductor">
+    </div>
+  </div>
+</section>
+
+<!-- PROBLEM -->
+<section class="problem reveal" id="problem">
+  <div class="container">
+    <div class="problem__header">
+      <div>
+        <span class="section-label">The Challenge</span>
+        <h2 class="problem__h2">41% of Product Launches Fail Due to Avoidable Mistakes.</h2>
+        <p class="problem__source">Source: Gartner Research · n=104</p>
+      </div>
+      <div class="problem__copy">
+        <p>From development to manufacturing to market, your team faces challenges with time, cost, and quality. Misalignment between departments compounds fast.</p>
+        <p>Tomorrow Lab's <strong>Holistic Innovation</strong> approach addresses the root cause — design and engineering aligned from day one, not patched at the end.</p>
+      </div>
+    </div>
+    <div class="problem__bars">
+      <div class="stat reveal-child">
+        <div class="stat__top">
+          <div class="stat__label">Schedule Delays</div>
+          <div class="stat__pct">41%</div>
+        </div>
+        <div class="stat__track"><div class="stat__fill" style="--w:41%"></div></div>
+      </div>
+      <div class="stat reveal-child">
+        <div class="stat__top">
+          <div class="stat__label">Cost Overruns in Development</div>
+          <div class="stat__pct">36%</div>
+        </div>
+        <div class="stat__track"><div class="stat__fill" style="--w:36%"></div></div>
+      </div>
+      <div class="stat reveal-child">
+        <div class="stat__top">
+          <div class="stat__label">Poor Forecasting</div>
+          <div class="stat__pct">35%</div>
+        </div>
+        <div class="stat__track"><div class="stat__fill" style="--w:35%"></div></div>
+      </div>
+      <div class="stat reveal-child">
+        <div class="stat__top">
+          <div class="stat__label">Failure to Meet Customer Needs</div>
+          <div class="stat__pct">29%</div>
+        </div>
+        <div class="stat__track"><div class="stat__fill" style="--w:29%"></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SOLUTION -->
+<section class="solution reveal" id="solution">
+  <div class="container">
+    <div class="solution__header">
+      <span class="section-label">Our Approach</span>
+      <h2 class="solution__h2">Full-Stack Product Development, Aligned From Day One.</h2>
+      <p class="solution__tagline">Our multidisciplinary team (ME, EE, ID) takes your product from ambiguous idea to testable prototype — faster, cheaper, better.</p>
+    </div>
+    <div class="solution__cols">
+      <div class="solution__col reveal-child">
+        <div class="sol-icon" aria-hidden="true">
+          <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+            <rect x="1" y="1" width="46" height="46" stroke="#007aff" stroke-width="1.5"/>
+            <line x1="12" y1="16" x2="36" y2="16" stroke="#000000" stroke-width="1.5"/>
+            <line x1="12" y1="24" x2="30" y2="24" stroke="#000000" stroke-width="1.5"/>
+            <line x1="12" y1="32" x2="22" y2="32" stroke="#000000" stroke-width="1.5"/>
+          </svg>
+        </div>
+        <h3>Strategy</h3>
+        <ul>
+          <li>Innovation &amp; Origination</li>
+          <li>Research &amp; User Experience</li>
+          <li>Intellectual Property</li>
+          <li>Product Management</li>
+        </ul>
+      </div>
+      <div class="solution__col reveal-child">
+        <div class="sol-icon" aria-hidden="true">
+          <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+            <rect x="1" y="1" width="46" height="46" stroke="#007aff" stroke-width="1.5"/>
+            <rect x="10" y="10" width="28" height="28" stroke="#000000" stroke-width="1.5" fill="none"/>
+            <rect x="17" y="17" width="14" height="14" fill="#007aff" fill-opacity="0.15"/>
+            <line x1="10" y1="24" x2="38" y2="24" stroke="#000000" stroke-width="0.75"/>
+            <line x1="24" y1="10" x2="24" y2="38" stroke="#000000" stroke-width="0.75"/>
+          </svg>
+        </div>
+        <h3>Design</h3>
+        <ul>
+          <li>Industrial Design</li>
+          <li>User Interface</li>
+          <li>Visualization &amp; Renderings</li>
+          <li>Packaging Design</li>
+        </ul>
+      </div>
+      <div class="solution__col reveal-child">
+        <div class="sol-icon" aria-hidden="true">
+          <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+            <rect x="1" y="1" width="46" height="46" stroke="#007aff" stroke-width="1.5"/>
+            <circle cx="24" cy="24" r="10" stroke="#000000" stroke-width="1.5"/>
+            <circle cx="24" cy="24" r="4" fill="#007aff"/>
+            <line x1="24" y1="8" x2="24" y2="14" stroke="#000000" stroke-width="1.5"/>
+            <line x1="24" y1="34" x2="24" y2="40" stroke="#000000" stroke-width="1.5"/>
+            <line x1="8" y1="24" x2="14" y2="24" stroke="#000000" stroke-width="1.5"/>
+            <line x1="34" y1="24" x2="40" y2="24" stroke="#000000" stroke-width="1.5"/>
+          </svg>
+        </div>
+        <h3>Engineering</h3>
+        <ul>
+          <li>Mechanical Engineering (ME)</li>
+          <li>Electrical Engineering (EE)</li>
+          <li>Firmware &amp; Embedded Systems</li>
+          <li>Supply Chain &amp; Manufacturing</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AUDIENCE SPLIT -->
+<section class="audience reveal" id="audience">
+  <div class="container">
+    <span class="section-label">Who We Serve</span>
+    <div class="audience__grid">
+      <div class="audience__card audience__card--a reveal-child">
+        <span class="aud-label">For Creative &amp; Digital Agencies</span>
+        <h3>Deliver the physical build your pitch promised.</h3>
+        <ul>
+          <li>Campaign activations &amp; experiential hardware</li>
+          <li>Connected brand experiences</li>
+          <li>One-off technical builds on compressed timelines</li>
+          <li>White-label — we work under your brand, under NDA</li>
+          <li>A partner credible enough for your biggest clients</li>
+        </ul>
+        <div class="aud-clients">
+          <span>McCann</span><span>BBDO</span><span>360i</span><span>R/GA</span>
+        </div>
+      </div>
+      <div class="audience__card audience__card--b reveal-child">
+        <span class="aud-label">For Software &amp; AI Teams</span>
+        <h3>Add the hardware half to your software product.</h3>
+        <ul>
+          <li>Connected devices &amp; IoT for software platforms</li>
+          <li>Edge AI, sensors &amp; embedded systems</li>
+          <li>Firmware + electrical + mechanical under one roof</li>
+          <li>Subcontract the physical, keep the software</li>
+          <li>From concept to a manufacturable device</li>
+        </ul>
+        <div class="aud-clients">
+          <span>Google</span><span>Uber</span><span>Arduino</span><span>Nordic</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WORK -->
+<section class="work reveal" id="work">
+  <div class="container">
+    <div class="work__header">
+      <span class="section-label">Selected Work</span>
+      <h2 class="work__h2">Hardware Behind Award-Winning Work.</h2>
+      <p class="work__sub">From experiential campaigns to connected products — built for the world's best agencies and brands.</p>
+    </div>
+    <div class="work__grid">
+      <article class="work__card reveal-child">
+        <div class="work__vis">
+          <img src="https://tomorrow-lab.com/static/img/products/jump/01.jpg" alt="JUMP Bike Interface — bike share checkout redesign by Tomorrow Lab">
+        </div>
+        <div class="work__body">
+          <span class="work__cat">Mobility</span>
+          <h3 class="work__name">JUMP Bike Interface</h3>
+          <p class="work__desc">Electric bike designed for urban sharing — concept to pilot production.</p>
+          <span class="work__badge">Acquired by Uber — $200M · 2018</span>
+        </div>
+      </article>
+      <article class="work__card reveal-child">
+        <div class="work__vis">
+          <img src="https://tomorrow-lab.com/static/img/products/dadi/10.jpg" alt="Dadi — reproductive preservation kit by Tomorrow Lab">
+        </div>
+        <div class="work__body">
+          <span class="work__cat">Health / Medical</span>
+          <h3 class="work__name">Dadi</h3>
+          <p class="work__desc">At-home sample collection kit with precision thermal engineering.</p>
+          <span class="work__badge">Acquired by Ro — $100M · 2022</span>
+        </div>
+      </article>
+      <article class="work__card reveal-child">
+        <div class="work__vis">
+          <img src="https://tomorrow-lab.com/static/img/products/symplbrush/1c.jpg" alt="SymplBrush — rapid all-teeth cleaning device by Tomorrow Lab">
+        </div>
+        <div class="work__body">
+          <span class="work__cat">CPG / Consumer Health</span>
+          <h3 class="work__name">SymplBrush</h3>
+          <p class="work__desc">Full-mouth electric toothbrush. Cleans all teeth in 30 seconds.</p>
+          <span class="work__badge">Shark Tank 2024 — Grede &amp; Cuban</span>
+        </div>
+      </article>
+      <article class="work__card reveal-child">
+        <div class="work__vis">
+          <img src="https://tomorrow-lab.com/static/img/products/exponent-power-serum/1.jpg" alt="Exponent Power Serum — portable skincare device by Tomorrow Lab">
+        </div>
+        <div class="work__body">
+          <span class="work__cat">CPG / Packaging</span>
+          <h3 class="work__name">Exponent Power Serum</h3>
+          <p class="work__desc">Single-dose self-activated skincare. No single-use plastic.</p>
+          <span class="work__badge">2023 Dieline Sustainability Award</span>
+        </div>
+      </article>
+      <article class="work__card reveal-child">
+        <div class="work__vis">
+          <img src="https://tomorrow-lab.com/static/img/products/helmet/Cosmos_37.jpg" alt="Astronaut Reality Helmet — simulated VR experience by Tomorrow Lab for NatGeo &amp; McCann NY">
+        </div>
+        <div class="work__body">
+          <span class="work__cat">Agency / Brand Activation</span>
+          <h3 class="work__name">Astronaut Reality Helmet</h3>
+          <p class="work__desc">Wearable cinematic experience for One Strange Rock. With McCann NY.</p>
+          <span class="work__badge">2018 Adweek Gravity Award</span>
+        </div>
+      </article>
+      <article class="work__card reveal-child">
+        <div class="work__vis">
+          <img src="https://tomorrow-lab.com/static/img/products/auntflow/1.jpg" alt="Aunt Flow — menstrual product dispenser by Tomorrow Lab">
+        </div>
+        <div class="work__body">
+          <span class="work__cat">Commercial Equipment</span>
+          <h3 class="work__name">Aunt Flow</h3>
+          <p class="work__desc">Wall-mounted dispenser with quick-load cartridge system.</p>
+          <span class="work__badge">Good Design Award 2025</span>
+        </div>
+      </article>
+    </div>
+    <div class="section-cta reveal">
+      <div class="section-cta__copy">
+        <strong>Have a client build in the pipeline?</strong>
+        Hardware that gets acquired, wins awards, and reaches market.
+      </div>
+      <div style="display:flex;gap:12px;flex-wrap:wrap;">
+        <a href="#contact" class="btn btn--primary">Book a Discovery Call</a>
+        <a href="#contact" class="btn btn--outline-dark">Check Our Availability</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials reveal" id="testimonials">
+  <div class="container">
+    <div class="testi__header">
+      <span class="section-label">Client Voices</span>
+      <h2 class="testi__h2">What Our Clients Say</h2>
+    </div>
+    <div class="testi__grid">
+      <div class="testi__card reveal-child">
+        <div class="testi__mark" aria-hidden="true">&ldquo;</div>
+        <blockquote>Tomorrow Lab took what was just an idea in my head and took it from concept into pilot production. From validating feasibility, building prototypes, to testing and scale — they helped each step of the way. Everything was beyond what we expected.</blockquote>
+        <footer><strong>Steven Ritter</strong><span>CEO, Teralytic</span></footer>
+      </div>
+      <div class="testi__card reveal-child">
+        <div class="testi__mark" aria-hidden="true">&ldquo;</div>
+        <blockquote>I have a 100% recommendation for any team looking to develop a product with an advanced level of electrical or mechanical need. You can expect a partner and not just work for hire. You can expect a long term relationship.</blockquote>
+        <footer><strong>John Barros</strong><span>Sr. Engineering Manager, Hasbro</span></footer>
+      </div>
+      <div class="testi__card reveal-child">
+        <div class="testi__mark" aria-hidden="true">&ldquo;</div>
+        <blockquote>Without question or pause I recommend Tomorrow Lab to any entrepreneur looking to design and develop products that can have an impact on the market. This isn't a team that needs to be micromanaged.</blockquote>
+        <footer><strong>Keith Arbeitman DDS</strong><span>CEO, SymplBrush</span></footer>
+      </div>
+    </div>
+    <p class="testi__more">More reviews on <a href="https://clutch.co/profile/tomorrow-lab-0" target="_blank" rel="noopener">Clutch →</a></p>
+    <div class="section-cta reveal">
+      <div class="section-cta__copy">
+        <strong>Join the teams who've already built with us.</strong>
+        From concept to prototype — with people who've done it before.
+      </div>
+      <a href="#contact" class="btn btn--primary">Get Results Like These</a>
+    </div>
+  </div>
+</section>
+
+<!-- OFFER / ENGAGEMENTS -->
+<section class="offer reveal" id="services">
+  <div class="container">
+    <div class="offer__header">
+      <span class="section-label">Engagements</span>
+      <h2 class="offer__h2">Tailored Engagements<br>at Every Stage.</h2>
+      <p class="offer__sub">Hourly, weekly, and multi-month engagements — designed to fit where you are right now.</p>
+    </div>
+    <div class="offer__grid">
+      <div class="offer__card reveal-child">
+        <div class="offer__top">
+          <span class="offer__dur">2 Weeks</span>
+          <h3>Discovery Intensive</h3>
+        </div>
+        <div class="offer__body">
+          <p>Rapid invention workshop to turn your concept into a structured product strategy.</p>
+          <ul>
+            <li>Invention workshop &amp; feasibility review</li>
+            <li>Feature strategy &amp; product architecture</li>
+            <li>Design DNA mapping</li>
+            <li>Risk identification &amp; next-step roadmap</li>
+          </ul>
+        </div>
+        <div class="offer__foot">
+          <span class="offer__cost">Ballpark: 5 figures</span>
+          <a href="#contact" class="btn btn--outline-blue">Get Started</a>
+        </div>
+      </div>
+      <div class="offer__card offer__card--feat reveal-child">
+        <div class="offer__badge">Most Popular</div>
+        <div class="offer__top">
+          <span class="offer__dur">6–8 Weeks</span>
+          <h3>Holistic Innovation Sprint</h3>
+        </div>
+        <div class="offer__body">
+          <p>Our full 4-phase process: Discovery, Elements, Fusion, and Vision — ending with a real prototype.</p>
+          <ul>
+            <li>Phases 1–4 of Innovation Pipeline</li>
+            <li>Industrial design &amp; product architecture</li>
+            <li>Technology strategy &amp; teardowns</li>
+            <li>Working prototype delivery</li>
+            <li>Supply chain groundwork</li>
+          </ul>
+        </div>
+        <div class="offer__foot">
+          <span class="offer__cost">Ballpark: 5–6 figures</span>
+          <a href="#contact" class="btn btn--white">Get Started</a>
+        </div>
+      </div>
+      <div class="offer__card reveal-child">
+        <div class="offer__top">
+          <span class="offer__dur">2–6 Months</span>
+          <h3>Full Product Development</h3>
+        </div>
+        <div class="offer__body">
+          <p>End-to-end engineering, manufacturing prep, and supply chain through to pilot production.</p>
+          <ul>
+            <li>ME, EE, firmware engineering</li>
+            <li>Design for manufacturing (DFM)</li>
+            <li>Contract manufacturer selection</li>
+            <li>Regulatory &amp; certification support</li>
+          </ul>
+        </div>
+        <div class="offer__foot">
+          <span class="offer__cost">Scope-based</span>
+          <a href="#contact" class="btn btn--outline-blue">Get Started</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="process reveal" id="process">
+  <div class="container">
+    <div class="process__header">
+      <span class="section-label">How It Works</span>
+      <h2 class="process__h2">Our 4-Phase Holistic Innovation Sprint</h2>
+      <p class="process__sub">We merge design and engineering to crystallize the product vision from day one.</p>
+    </div>
+    <div class="process__steps">
+      <div class="process__step reveal-child">
+        <div class="process__num">01</div>
+        <h3>Discovery</h3>
+        <p>Invention workshop, concept definition, feasibility review, and business case development.</p>
+        <ul>
+          <li>Discover Needs</li>
+          <li>Gather Inspiration &amp; Analogs</li>
+          <li>Workshop Concepts</li>
+          <li>Feasibility Review</li>
+        </ul>
+        <div class="process__arrow" aria-hidden="true">→</div>
+      </div>
+      <div class="process__step reveal-child">
+        <div class="process__num">02</div>
+        <h3>Elements</h3>
+        <p>Deep technical and aesthetic research — teardowns, UX, material exploration, tech strategy.</p>
+        <ul>
+          <li>Product Teardowns</li>
+          <li>Technology Strategy</li>
+          <li>Component Selection</li>
+          <li>Experience &amp; Touchpoints</li>
+        </ul>
+        <div class="process__arrow" aria-hidden="true">→</div>
+      </div>
+      <div class="process__step reveal-child">
+        <div class="process__num">03</div>
+        <h3>Fusion</h3>
+        <p>Industrial design meets engineering. Concept sketches, product architecture, surface modelling.</p>
+        <ul>
+          <li>Concept Sketches</li>
+          <li>Product Architecture</li>
+          <li>Surface Modelling</li>
+          <li>Design Synthesis</li>
+        </ul>
+        <div class="process__arrow" aria-hidden="true">→</div>
+      </div>
+      <div class="process__step reveal-child">
+        <div class="process__num">04</div>
+        <h3>Vision</h3>
+        <p>High-resolution renderings, display model prototype, and PRD — ready for stakeholders.</p>
+        <ul>
+          <li>Housing Renderings</li>
+          <li>Display Model (Tier 0)</li>
+          <li>Product Spec Document</li>
+          <li>Next-Step Roadmap</li>
+        </ul>
+      </div>
+    </div>
+    <div class="section-cta reveal">
+      <div class="section-cta__copy">
+        <strong>See how the sprint works for your project.</strong>
+        4 phases. 6–8 weeks. A real prototype at the end.
+      </div>
+      <a href="#contact" class="btn btn--primary">Walk Me Through the Sprint</a>
+    </div>
+  </div>
+</section>
+
+<!-- QUALIFICATION -->
+<section class="qualify reveal" id="qualify">
+  <div class="container">
+    <div class="qualify__header">
+      <span class="section-label">Right Fit</span>
+      <h2 class="qualify__h2">Is Tomorrow Lab Right for You?</h2>
+    </div>
+    <div class="qualify__grid">
+      <div class="qualify__col reveal-child">
+        <h3>We're a great fit for:</h3>
+        <ul>
+          <li><span class="qcheck" aria-hidden="true">✓</span>Corporate innovation groups and R&amp;D teams</li>
+          <li><span class="qcheck" aria-hidden="true">✓</span>Brand &amp; marketing teams needing physical experiences</li>
+          <li><span class="qcheck" aria-hidden="true">✓</span>Agencies needing technical product execution</li>
+          <li><span class="qcheck" aria-hidden="true">✓</span>Funded startups with a clear product thesis</li>
+          <li><span class="qcheck" aria-hidden="true">✓</span>Teams that need speed without manufacturing surprises</li>
+        </ul>
+      </div>
+      <div class="qualify__div" aria-hidden="true"></div>
+      <div class="qualify__col qualify__col--no reveal-child">
+        <h3>We may not be the best fit for:</h3>
+        <ul>
+          <li><span class="qx" aria-hidden="true">×</span>Early-stage hobby or weekend side projects</li>
+          <li><span class="qx" aria-hidden="true">×</span>Low-budget one-off invention ideas without funding</li>
+          <li><span class="qx" aria-hidden="true">×</span>Visitors looking for patent-only guidance</li>
+          <li><span class="qx" aria-hidden="true">×</span>Projects requiring only software or digital products</li>
+        </ul>
+      </div>
+    </div>
+    <div class="section-cta reveal">
+      <div class="section-cta__copy">
+        <strong>Sounds like you? Let's find out for sure.</strong>
+        A 30-minute call is all it takes to know if we're the right fit.
+      </div>
+      <a href="#contact" class="btn btn--primary">See If We're a Fit</a>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT / FORM -->
+<section class="contact reveal" id="contact">
+  <div class="container">
+    <div class="contact__left">
+      <h2 class="contact__h2">Let's Turn Your Concept Into Something Real.</h2>
+      <p class="contact__sub">Book a discovery call. We'll review your concept, ask the right questions, and tell you exactly what's possible.</p>
+      <div class="contact__founders">
+        <div class="founder">
+          <div class="founder__av" aria-hidden="true">PG</div>
+          <div class="founder__info">
+            <strong>Pepin Gelardi</strong>
+            <span>Co-Founder</span>
+          </div>
+        </div>
+        <div class="founder">
+          <div class="founder__av" aria-hidden="true">TU</div>
+          <div class="founder__info">
+            <strong>Theodore Ullrich</strong>
+            <span>Co-Founder</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="contact__form" id="contact-form">
+      <iframe
+        src="https://tomorrowlabppc.com/form/"
+        id="gf-iframe"
+        width="100%"
+        frameborder="0"
+        scrolling="no"
+        allowtransparency="true"
+        style="display:block; border:none; height:820px;"
+      ></iframe>
+      <p class="contact__disclaimer">By submitting this form, you consent to being contacted by our team regarding your project inquiry. Your information is kept confidential and handled in accordance with our <a href="https://www.tomorrow-lab.com/privacy" target="_blank" rel="noopener">Privacy Policy</a>.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq reveal" id="faq">
+  <div class="container">
+    <div class="faq__header">
+      <span class="section-label">Common Questions</span>
+      <h2 class="faq__h2">FAQ</h2>
+    </div>
+    <div class="faq__list">
+      <details class="faq__item reveal-child">
+        <summary class="faq__q">What types of projects are the best fit for Tomorrow Lab?</summary>
+        <div class="faq__a"><p>We work best with hardware product projects that have real business intent — from a working prototype to a manufacturable product. We serve startups, corporate innovation teams, and advertising agencies building physical concepts. The ideal project has concept clarity, budget, and a team committed to taking it to market.</p></div>
+      </details>
+      <details class="faq__item reveal-child">
+        <summary class="faq__q">Can you work with internal corporate innovation teams?</summary>
+        <div class="faq__a"><p>Yes. We regularly work alongside corporate R&D, innovation, and product teams as a drop-in hardware expertise partner — providing enhancement, training, expansion, and gap-filling for existing in-house teams without disrupting your internal structure.</p></div>
+      </details>
+      <details class="faq__item reveal-child">
+        <summary class="faq__q">Do you partner with advertising and creative agencies?</summary>
+        <div class="faq__a"><p>Absolutely. We've built wearable experiences for National Geographic with McCann NY, connected brand activations with BBDO, and holiday product experiences with USPS. We understand agency timelines, stakeholder dynamics, and the standard of quality your client expects.</p></div>
+      </details>
+      <details class="faq__item reveal-child">
+        <summary class="faq__q">What happens during the discovery/prototype phase?</summary>
+        <div class="faq__a"><p>Our 2-week Discovery Intensive and 6–8 week Holistic Innovation Sprint cover concept definition, feasibility review, design research, technology strategy, industrial design exploration, and a prototype or rendering output. You'll leave with a clear product direction, documented risks, and a roadmap for next steps.</p></div>
+      </details>
+      <details class="faq__item reveal-child">
+        <summary class="faq__q">Do we own the IP from our engagement?</summary>
+        <div class="faq__a"><p>Yes. When a project is complete, you own the work. Our goal is to create IP that is relevant and valuable to your company. We can also assist with patent strategy and documentation as part of the engagement.</p></div>
+      </details>
+      <details class="faq__item reveal-child">
+        <summary class="faq__q">How quickly can a project begin?</summary>
+        <div class="faq__a"><p>Depending on current availability, we can typically begin within 2–4 weeks of a signed agreement. Our calendar books in advance — reach out early. Book a discovery call and we'll align on a start date that works for your timeline.</p></div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer__top">
+      <div class="footer__brand">
+        <img src="https://tomorrow-lab.com/static/img/tomorrowlab.svg" alt="Tomorrow Lab" width="120" height="30"
+             onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+        <span class="footer__logo-fb">Tomorrow Lab<sup>®</sup></span>
+        <p>A dedicated technology innovation studio helping entrepreneurs invent, develop, and launch new products.</p>
+        <p class="footer__loc">Brooklyn, NY — Founded 2010</p>
+      </div>
+      <div class="footer__contacts">
+        <div class="footer__contact">
+          <strong>Pepin Gelardi</strong>
+          <span>Co-Founder</span>
+          <a href="#contact-form">Schedule a Call →</a>
+        </div>
+        <div class="footer__contact">
+          <strong>Theodore Ullrich</strong>
+          <span>Co-Founder</span>
+          <a href="#contact-form">Schedule a Call →</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer__bot">
+      <p>© 2025 Tomorrow Lab®. All rights reserved.</p>
+      <a href="https://www.tomorrow-lab.com" target="_blank" rel="noopener">tomorrow-lab.com →</a>
+    </div>
+  </div>
+</footer>
+
+<!-- EXIT POPUP -->
+<div id="exit-popup-overlay" class="exit-popup-overlay" role="dialog" aria-modal="true" aria-labelledby="exit-popup-title" style="display:none;">
+  <div class="exit-popup">
+    <button class="exit-popup__close" id="exit-popup-close" aria-label="Close">&#x2715;</button>
+    <div class="exit-popup__content">
+      <div class="exit-popup__left">
+        <div class="exit-popup__brand">Tomorrow&thinsp;&middot;&thinsp;Lab</div>
+        <h2 class="exit-popup__headline" id="exit-popup-title">Not ready to talk yet?<br>Grab our Hardware Innovation Handbook for free!</h2>
+        <p class="exit-popup__sub">We've packed 15 years of experience into it!</p>
+        <form class="exit-popup__form" id="exit-popup-form" novalidate>
+          <div class="exit-popup__field">
+            <input type="text" name="ep_name" placeholder="Your Name" autocomplete="name">
+          </div>
+          <div class="exit-popup__field">
+            <input type="email" name="ep_email" placeholder="Your Email" autocomplete="email" required>
+          </div>
+          <button type="submit" class="exit-popup__btn">Get My Free Handbook</button>
+          <p class="exit-popup__note">No spam. Unsubscribe anytime.</p>
+        </form>
+      </div>
+      <div class="exit-popup__right">
+        <img src="https://www.tomorrow-lab.com/discovery/tl-hardware-innovation-guidebook-2025.jpg" alt="The Hardware Innovation Guidebook — from Idea to Prototype" class="exit-popup__book">
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+(function () {
+  /* ── Scroll reveal ─────────────────────────────────────────── */
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (e.isIntersecting) {
+        e.target.classList.add('in-view');
+        io.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+
+  document.querySelectorAll('.reveal, .reveal-child').forEach(function (el) {
+    io.observe(el);
+  });
+
+  /* ── Nav scroll ───────────────────────────────────────────── */
+  var nav = document.getElementById('nav');
+  window.addEventListener('scroll', function () {
+    nav.classList.toggle('scrolled', window.scrollY > 60);
+  }, { passive: true });
+
+  /* ── FAQ accordion ────────────────────────────────────────── */
+  document.querySelectorAll('.faq__item').forEach(function (item) {
+    item.addEventListener('toggle', function () {
+      if (this.open) {
+        document.querySelectorAll('.faq__item[open]').forEach(function (other) {
+          if (other !== item) other.open = false;
+        });
+      }
+    });
+  });
+
+  /* ── Form submit ──────────────────────────────────────────── */
+  var form = document.getElementById('contact-form');
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var btn = form.querySelector('[type="submit"]');
+    btn.disabled = true;
+    btn.textContent = 'Sending…';
+    setTimeout(function () {
+      btn.textContent = "Sent — we'll be in touch within 1 business day.";
+      btn.style.cssText = 'background:#000;color:#fff;border-color:#000;cursor:default';
+    }, 1000);
+  });
+
+  /* ── Smooth scroll ────────────────────────────────────────── */
+  document.querySelectorAll('a[href^="#"]').forEach(function (a) {
+    a.addEventListener('click', function (e) {
+      var t = document.querySelector(this.getAttribute('href'));
+      if (t) { e.preventDefault(); t.scrollIntoView({ behavior: 'smooth' }); }
+    });
+  });
+
+  /* ── iframe auto-resize (Gravity Forms @ tomorrowlabppc.com) ──
+     Two redundant channels carry the SAME measurement — the bottom
+     edge of .gform_wrapper (+24px buffer), computed inside the form
+     page itself:
+
+     1. iframe-resizer: the form page pushes explicit heights via
+        parentIFrame.size(h) on every real layout change (it uses a
+        ResizeObserver, which fires AFTER reflow completes — this is
+        what catches GF validation errors / confirmations). Auto
+        recalc here uses 'taggedElement': a [data-iframe-height]
+        marker the form page keeps glued directly below the form, so
+        automatic recalcs never measure the theme's 100vh body and
+        never produce a stale pre-reflow value.
+
+     2. Raw postMessage fallback: the form page also posts
+        { tlGfHeight: n }; the listener below applies it even if the
+        iframe-resizer handshake ever fails (e.g. CDN hiccup).
+
+     Requires the matching Custom HTML block on the WordPress form
+     page (see WP-FORM-PAGE-SNIPPET comment at the end of this file). */
+  var GF_ORIGIN = 'https://tomorrowlabppc.com';
+  var GF_MIN_H  = 250;
+
+  if (typeof iFrameResize === 'function') {
+    iFrameResize({
+      log: false,
+      checkOrigin: false,
+      heightCalculationMethod: 'taggedElement',
+      tolerance: 2,
+      minHeight: GF_MIN_H,
+      warningTimeout: 0
+    }, '#gf-iframe');
+  }
+
+  /* Fallback channel — direct postMessage from the form page */
+  window.addEventListener('message', function (e) {
+    /* accept apex + www; e.source check below binds it to our iframe */
+    if (e.origin !== GF_ORIGIN && e.origin !== 'https://www.tomorrowlabppc.com') return;
+    var d = e.data;
+    if (!d || typeof d !== 'object' || typeof d.tlGfHeight !== 'number') return;
+    var fr = document.getElementById('gf-iframe');
+    if (fr && e.source === fr.contentWindow && d.tlGfHeight > 0) {
+      fr.style.height = Math.max(GF_MIN_H, Math.ceil(d.tlGfHeight)) + 'px';
+    }
+  });
+
+  /* ── Exit Popup ───────────────────────────────────────────── */
+  (function () {
+    var overlay  = document.getElementById('exit-popup-overlay');
+    var closeBtn = document.getElementById('exit-popup-close');
+    var epForm   = document.getElementById('exit-popup-form');
+    var triggered = false;
+
+    function showPopup() {
+      if (triggered || sessionStorage.getItem('epShown')) return;
+      triggered = true;
+      sessionStorage.setItem('epShown', '1');
+      overlay.style.display = 'flex';
+      document.body.style.overflow = 'hidden';
+    }
+
+    function hidePopup() {
+      overlay.style.display = 'none';
+      document.body.style.overflow = '';
+    }
+
+    /* Exit intent: mouse leaves through the top of the viewport */
+    document.addEventListener('mouseleave', function (e) {
+      if (e.clientY <= 0) showPopup();
+    });
+
+    /* Fallback: show after 45 seconds of idle browsing */
+    var fallbackTimer = setTimeout(function () { showPopup(); }, 45000);
+
+    closeBtn.addEventListener('click', hidePopup);
+
+    overlay.addEventListener('click', function (e) {
+      if (e.target === overlay) hidePopup();
+    });
+
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && overlay.style.display !== 'none') hidePopup();
+    });
+
+    epForm.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var btn  = epForm.querySelector('.exit-popup__btn');
+      var name  = epForm.querySelector('[name="ep_name"]').value.trim();
+      var email = epForm.querySelector('[name="ep_email"]').value.trim();
+
+      btn.textContent = 'Sending…';
+      btn.disabled = true;
+
+      var gsUrl = 'https://script.google.com/macros/s/AKfycbwsEirq_lQVKZyzRydT8jMGYloX-4OcRl4fR5t9y3krij650gpGDs5yD83dXNSFWup0/exec'
+        + '?name='  + encodeURIComponent(name)
+        + '&email=' + encodeURIComponent(email);
+      fetch(gsUrl, { mode: 'no-cors' }).catch(function () { /* fail silently */ });
+
+      window.open('https://drive.google.com/uc?export=download&id=17PMaD3FaE4BWfKw6Uf0sGmw4d4Z_u7Ox', '_blank');
+
+      btn.textContent = 'Downloading — enjoy the handbook!';
+      btn.style.background = '#2a7a4a';
+      btn.style.borderColor = '#2a7a4a';
+      clearTimeout(fallbackTimer);
+      setTimeout(function () { hidePopup(); }, 2500);
+    });
+  }());
+})();
+</script>
+
+<!-- WP-FORM-PAGE-SNIPPET
+  Replace the ENTIRE existing Custom HTML block on https://tomorrowlabppc.com/form/
+  (the one that currently loads iframeResizer.contentWindow.min.js) with the
+  snippet below. It must stay BELOW the Gravity Forms shortcode block.
+  Copy everything between SNIPPET START and SNIPPET END.
+
+============================ SNIPPET START ============================
+
+<div data-iframe-height style="display:block;height:1px;margin:0;padding:0;"></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/iframe-resizer/4.3.9/iframeResizer.contentWindow.min.js"></script>
+
+<script>
+(function () {
+  var BUFFER = 24; // breathing room below the submit button
+
+  function formEl() {
+    return document.querySelector('.gform_confirmation_wrapper') ||
+           document.querySelector('.gform_wrapper');
+  }
+
+  function measure() {
+    var el = formEl();
+    var bottom = el
+      ? el.getBoundingClientRect().bottom + (window.pageYOffset || 0)
+      : document.body.scrollHeight;
+    return Math.ceil(bottom + BUFFER);
+  }
+
+  function positionTag() {
+    // Keep the taggedElement marker glued directly below the form so
+    // iframe-resizer's own automatic recalcs measure this same height
+    // (never the theme's min-height:100vh body).
+    var tag = document.querySelector('[data-iframe-height]');
+    var el  = formEl();
+    if (tag && el && el.parentNode && el.nextElementSibling !== tag) {
+      el.parentNode.insertBefore(tag, el.nextSibling);
+    }
+  }
+
+  function push() {
+    positionTag();
+    var h = measure();
+    if (window.parentIFrame && typeof window.parentIFrame.size === 'function') {
+      window.parentIFrame.size(h);          // primary channel
+    }
+    window.parent.postMessage({ tlGfHeight: h }, '*'); // fallback channel
+  }
+
+  // Push now and again after layout settles (fonts, images, GF reflow).
+  function settle() {
+    if (window.requestAnimationFrame) {
+      requestAnimationFrame(function () { requestAnimationFrame(push); });
+    } else { push(); }
+    setTimeout(push, 150);
+    setTimeout(push, 450);
+    setTimeout(push, 1000);
+  }
+
+  // ResizeObserver fires AFTER reflow with final geometry. This is the
+  // trigger that reliably catches GF validation errors being injected.
+  var ro = ('ResizeObserver' in window)
+    ? new ResizeObserver(function () { push(); })
+    : null;
+
+  function observe() {
+    if (!ro) return;
+    ro.disconnect();
+    var el = formEl();
+    if (el) {
+      ro.observe(el);
+      // GF AJAX replaces the wrapper node; observing its parent survives the swap.
+      if (el.parentNode && el.parentNode.nodeType === 1) ro.observe(el.parentNode);
+    }
+  }
+
+  function boot() { observe(); settle(); }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', boot);
+  } else {
+    boot();
+  }
+  window.addEventListener('load', settle);
+
+  // Gravity Forms re-render hooks (AJAX validation errors / confirmation).
+  if (window.jQuery) {
+    jQuery(document).on('gform_post_render gform_confirmation_loaded', function () {
+      observe(); // wrapper node may have been replaced
+      settle();
+    });
+  }
+
+  // Safety net: if the wrapper is swapped outside GF's jQuery events,
+  // re-attach the observer and re-push (debounced).
+  if ('MutationObserver' in window) {
+    var moTimer = null;
+    new MutationObserver(function () {
+      clearTimeout(moTimer);
+      moTimer = setTimeout(function () { observe(); settle(); }, 60);
+    }).observe(document.body, { childList: true, subtree: true });
+  }
+})();
+</script>
+
+============================= SNIPPET END =============================
+-->
+</body>
+</html>
