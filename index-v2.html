@@ -310,6 +310,11 @@ button, input, select, textarea { font-family: inherit; font-size: inherit; }
   flex-direction: column;
   gap: 14px;
 }
+@media (min-width: 901px) {
+  /* Pull the logos up so they read as proof right under the value prop,
+     not as a stray line hovering above the CTAs. */
+  .hero__trust-mini { margin-top: -28px; }
+}
 .hero__trust-mini span {
   font-family: var(--font-mono);
   font-size: 0.6rem;
@@ -416,27 +421,12 @@ button, input, select, textarea { font-family: inherit; font-size: inherit; }
   margin-top: 4px;
 }
 .hero-form-card__next .section-label { margin-bottom: 0; }
-.hero-form-card__next ol {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  margin-top: 12px;
-}
-.hero-form-card__next li {
-  display: flex;
-  align-items: baseline;
-  gap: 10px;
-  font-size: 0.78rem;
+.hero-form-card__next p {
+  font-size: 0.8rem;
   font-weight: 300;
   color: var(--grey);
-  line-height: 1.5;
-}
-.hero-form-card__next li span {
-  font-family: var(--font-mono);
-  font-size: 0.65rem;
-  font-weight: 700;
-  color: var(--blue);
-  flex-shrink: 0;
+  line-height: 1.6;
+  margin-top: 10px;
 }
 
 /* ── Quiz-style lead form ──────────────────────────────────────
@@ -1086,6 +1076,11 @@ button, input, select, textarea { font-family: inherit; font-size: inherit; }
   font-style: italic;
   flex: 1;
   margin-bottom: 28px;
+}
+.testi__card blockquote strong {
+  font-weight: 700;
+  font-style: normal;
+  color: var(--black);
 }
 .testi__card footer {
   display: flex;
@@ -1944,6 +1939,24 @@ button, input, select, textarea { font-family: inherit; font-size: inherit; }
   .hero__diff, .hero__qualifier, .hero__ctas { display: none; }
   .hero-form-card__embed iframe { min-height: 620px; }
 
+  /* Hero mini trust bar — 2x2 grid so nothing wraps alone onto its own
+     line; Hasbro (hardest to read at small size) moves under Capital
+     One and prints larger. */
+  .hero__trust-mini-logos {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    align-items: center;
+    justify-items: start;
+    column-gap: 28px;
+    row-gap: 18px;
+  }
+  .hero__trust-mini-logos img:nth-child(1) { order: 1; } /* Google */
+  .hero__trust-mini-logos img:nth-child(3) { order: 2; } /* Capital One */
+  .hero__trust-mini-logos img:nth-child(4) { order: 3; } /* McCann */
+  .hero__trust-mini-logos img:nth-child(2) { order: 4; } /* Hasbro */
+  .hero__trust-mini img { height: 26px; max-width: 110px; }
+  .hero__trust-mini img.hero__trust-mini-logo--hasbro { height: 40px; max-width: 120px; }
+
   /* Trust logos */
   .trust { padding: 64px 0; }
   .trust__label { margin-bottom: 40px; }
@@ -2335,7 +2348,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <div class="hero__layout">
     <p class="hero__eyebrow">Hardware Innovation Studio · Brooklyn NY · Est. 2010</p>
     <h1 class="hero__h1">Hardware Product Development.<br><em>From Concept to Working Prototype.</em></h1>
-    <p class="hero__sub">Tomorrow Lab brings strategy, industrial design, mechanical engineering, electrical engineering, firmware, prototyping, and manufacturing expertise together under one roof to help companies turn ambitious physical product ideas into reality.</p>
+    <p class="hero__sub">Strategy, industrial design, engineering, firmware, and prototyping under one roof—built for teams developing ambitious physical products.</p>
     <ul class="hero__diff">
       <li><span class="hero__diff-check" aria-hidden="true">✓</span><span><strong>Strategy, design, and engineering</strong> under one roof</span></li>
       <li><span class="hero__diff-check" aria-hidden="true">✓</span><span>From early feasibility through <strong>working prototypes</strong></span></li>
@@ -2345,7 +2358,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <span>Trusted by teams at</span>
       <div class="hero__trust-mini-logos">
         <img src="logos/google-logo.png" alt="Google">
-        <img src="logos/hasbro-logo.png" alt="Hasbro">
+        <img class="hero__trust-mini-logo--hasbro" src="logos/hasbro-logo.png" alt="Hasbro">
         <img src="logos/capital-one-logo.png" alt="Capital One">
         <img src="logos/mccann-logo.png" alt="McCann">
       </div>
@@ -2359,14 +2372,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="hero-form-card__accent" aria-hidden="true"></div>
       <div class="hero-form-card__head">
         <h2 class="hero-form-card__title">Tell Us About Your Project</h2>
-        <p class="hero-form-card__desc">Three quick questions, then your details. We'll review your project and follow up about potential next steps.</p>
+        <p class="hero-form-card__desc">Answer 3 quick questions to help us understand your project. If there's a potential fit, our team will follow up about a 30-minute discovery conversation.</p>
       </div>
 
       <div class="quiz" data-quiz>
         <div class="quiz-progress">
           <button type="button" class="quiz-back" data-quiz-back aria-label="Back to previous question" hidden>‹</button>
           <div class="quiz-progress__track"><span class="quiz-progress__fill" data-quiz-fill></span></div>
-          <span class="quiz-progress__label" data-quiz-label>Step 1 of 2</span>
+          <span class="quiz-progress__label" data-quiz-label>Project Fit — 1 of 3</span>
         </div>
 
         <div class="quiz-screen is-active" data-quiz-screen="0">
@@ -2397,22 +2410,23 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
         <div class="quiz-screen" data-quiz-screen="2">
           <span class="quiz-eyebrow">Question 3 of 3</span>
-          <h3 class="quiz-question">What do you need help with?</h3>
+          <h3 class="quiz-question">Which type of support is closest to what you need?</h3>
+          <p class="quiz-hint">Not sure? Choose the option that sounds closest. Our team will confirm the right approach after reviewing your project.</p>
           <div class="quiz-options" data-quiz-key="requested_services">
             <button type="button" class="quiz-option" data-value="Holistic Innovation Sprint">
-              <span class="quiz-option__text"><strong>Holistic Innovation Sprint</strong><small>Proof-of-concept prototype build</small></span>
+              <span class="quiz-option__text"><strong>Holistic Innovation Sprint</strong><small>I need to prove, design, engineer, and prototype a new product concept.</small></span>
               <span class="quiz-option__mark" aria-hidden="true"></span>
             </button>
             <button type="button" class="quiz-option" data-value="Product Development">
-              <span class="quiz-option__text"><strong>Product Development</strong><small>Engineer your production-ready product</small></span>
+              <span class="quiz-option__text"><strong>Product Development</strong><small>I have a concept or prototype and need help developing it into a production-ready product.</small></span>
               <span class="quiz-option__mark" aria-hidden="true"></span>
             </button>
             <button type="button" class="quiz-option" data-value="Accelerator Workshop">
-              <span class="quiz-option__text"><strong>Accelerator Workshop</strong><small>Explore &amp; validate your concept</small></span>
+              <span class="quiz-option__text"><strong>Accelerator Workshop</strong><small>I need help exploring, defining, or validating the right direction for my product.</small></span>
               <span class="quiz-option__mark" aria-hidden="true"></span>
             </button>
             <button type="button" class="quiz-option" data-value="Pilot Manufacturing Support">
-              <span class="quiz-option__text"><strong>Pilot Manufacturing Support</strong><small>Get ready to scale production</small></span>
+              <span class="quiz-option__text"><strong>Pilot Manufacturing Support</strong><small>My product is developed and I need help preparing for pilot production.</small></span>
               <span class="quiz-option__mark" aria-hidden="true"></span>
             </button>
           </div>
@@ -2449,12 +2463,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </div>
 
       <div class="hero-form-card__next">
-        <span class="section-label">What Happens Next</span>
-        <ol>
-          <li><span>01</span>Tell us about your project.</li>
-          <li><span>02</span>Tomorrow Lab reviews the project and evaluates fit.</li>
-          <li><span>03</span>If there's a potential match, the team follows up about a discovery conversation.</li>
-        </ol>
+        <span class="section-label">What happens next?</span>
+        <p>Our team reviews your project. If there's a potential fit, we'll follow up about a discovery conversation.</p>
       </div>
     </div>
   </div>
@@ -2503,13 +2513,60 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div>
 </section>
 
+<!-- PROBLEM -->
+<section class="problem reveal" id="problem">
+  <div class="container">
+    <div class="problem__header">
+      <div>
+        <span class="section-label">The Challenge</span>
+        <h2 class="problem__h2">41% of Product Launches Fail Due to Avoidable Mistakes.</h2>
+        <p class="problem__source">Source: Gartner Research · n=104</p>
+      </div>
+      <div class="problem__copy">
+        <p>From development to manufacturing to market, your team faces challenges with time, cost, and quality. Misalignment between departments compounds fast.</p>
+        <p>Tomorrow Lab's <strong>Holistic Innovation</strong> approach addresses the root cause — design and engineering aligned from day one, not patched at the end.</p>
+      </div>
+    </div>
+    <div class="problem__bars">
+      <div class="stat reveal-child">
+        <div class="stat__top">
+          <div class="stat__label">Schedule Delays</div>
+          <div class="stat__pct" data-count="41">0%</div>
+        </div>
+        <div class="stat__track"><div class="stat__fill" style="--w:41%"></div></div>
+      </div>
+      <div class="stat reveal-child">
+        <div class="stat__top">
+          <div class="stat__label">Cost Overruns in Development</div>
+          <div class="stat__pct" data-count="36">0%</div>
+        </div>
+        <div class="stat__track"><div class="stat__fill" style="--w:36%"></div></div>
+      </div>
+      <div class="stat reveal-child">
+        <div class="stat__top">
+          <div class="stat__label">Poor Forecasting</div>
+          <div class="stat__pct" data-count="35">0%</div>
+        </div>
+        <div class="stat__track"><div class="stat__fill" style="--w:35%"></div></div>
+      </div>
+      <div class="stat reveal-child">
+        <div class="stat__top">
+          <div class="stat__label">Failure to Meet Customer Needs</div>
+          <div class="stat__pct" data-count="29">0%</div>
+        </div>
+        <div class="stat__track"><div class="stat__fill" style="--w:29%"></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- SOLUTION -->
 <section class="solution reveal" id="solution">
   <div class="container">
     <div class="solution__header">
-      <span class="section-label">What Tomorrow Lab Does</span>
+      <span class="section-label">The Tomorrow Lab Approach</span>
       <h2 class="solution__h2">Full-Stack Product Development, Aligned From Day One.</h2>
-      <p class="solution__tagline">Tomorrow Lab combines the disciplines needed to develop physical products under one roof: strategy, design, engineering, and production.</p>
+      <p class="solution__tagline">Our multidisciplinary team (ME, EE, ID) takes your product from ambiguous idea to testable prototype — faster, cheaper, better.</p>
     </div>
     <div class="solution__cols">
       <div class="solution__col reveal-child">
@@ -2716,7 +2773,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <div class="container">
     <div class="testi__card reveal-child">
       <div class="testi__mark" aria-hidden="true">&ldquo;</div>
-      <blockquote>I have a 100% recommendation for any team looking to develop a product with an advanced level of electrical or mechanical need. You can expect a partner and not just work for hire. You can expect a long term relationship.</blockquote>
+      <blockquote>I have a 100% recommendation for any team looking to develop a product with an advanced level of electrical or mechanical need. <strong>You can expect a partner and not just work for hire.</strong> You can expect a long term relationship.</blockquote>
       <footer><strong>John Barros</strong><span>Sr. Engineering Manager, Hasbro</span></footer>
     </div>
     <div class="section-cta reveal">
@@ -2925,12 +2982,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div class="testi__grid testi__grid--2">
       <div class="testi__card reveal-child">
         <div class="testi__mark" aria-hidden="true">&ldquo;</div>
-        <blockquote>Tomorrow Lab took what was just an idea in my head and took it from concept into pilot production. From validating feasibility, building prototypes, to testing and scale — they helped each step of the way. Everything was beyond what we expected.</blockquote>
+        <blockquote>Tomorrow Lab took what was just an idea in my head and <strong>took it from concept into pilot production</strong>. From validating feasibility, building prototypes, to testing and scale — they helped each step of the way. Everything was beyond what we expected.</blockquote>
         <footer><strong>Steven Ritter</strong><span>CEO, Teralytic</span></footer>
       </div>
       <div class="testi__card reveal-child">
         <div class="testi__mark" aria-hidden="true">&ldquo;</div>
-        <blockquote>Without question or pause I recommend Tomorrow Lab to any entrepreneur looking to design and develop products that can have an impact on the market. This isn't a team that needs to be micromanaged.</blockquote>
+        <blockquote>Without question or pause <strong>I recommend Tomorrow Lab to any entrepreneur</strong> looking to design and develop products that can have an impact on the market. This isn't a team that needs to be micromanaged.</blockquote>
         <footer><strong>Keith Arbeitman DDS</strong><span>CEO, SymplBrush</span></footer>
       </div>
     </div>
@@ -2987,14 +3044,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <div class="container">
     <div class="contact-band__head">
       <h2 class="contact-band__title">Ready to Build What's Next?</h2>
-      <p class="contact-band__desc">Three quick questions, then your details. We'll review it and follow up about potential next steps.</p>
+      <p class="contact-band__desc">Answer 3 quick questions to help us understand your project. If there's a potential fit, our team will follow up about a 30-minute discovery conversation.</p>
     </div>
     <div class="contact-band__form">
       <div class="quiz" data-quiz>
         <div class="quiz-progress">
           <button type="button" class="quiz-back" data-quiz-back aria-label="Back to previous question" hidden>‹</button>
           <div class="quiz-progress__track"><span class="quiz-progress__fill" data-quiz-fill></span></div>
-          <span class="quiz-progress__label" data-quiz-label>Step 1 of 2</span>
+          <span class="quiz-progress__label" data-quiz-label>Project Fit — 1 of 3</span>
         </div>
 
         <div class="quiz-screen is-active" data-quiz-screen="0">
@@ -3025,22 +3082,23 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
         <div class="quiz-screen" data-quiz-screen="2">
           <span class="quiz-eyebrow">Question 3 of 3</span>
-          <h3 class="quiz-question">What do you need help with?</h3>
+          <h3 class="quiz-question">Which type of support is closest to what you need?</h3>
+          <p class="quiz-hint">Not sure? Choose the option that sounds closest. Our team will confirm the right approach after reviewing your project.</p>
           <div class="quiz-options" data-quiz-key="requested_services">
             <button type="button" class="quiz-option" data-value="Holistic Innovation Sprint">
-              <span class="quiz-option__text"><strong>Holistic Innovation Sprint</strong><small>Proof-of-concept prototype build</small></span>
+              <span class="quiz-option__text"><strong>Holistic Innovation Sprint</strong><small>I need to prove, design, engineer, and prototype a new product concept.</small></span>
               <span class="quiz-option__mark" aria-hidden="true"></span>
             </button>
             <button type="button" class="quiz-option" data-value="Product Development">
-              <span class="quiz-option__text"><strong>Product Development</strong><small>Engineer your production-ready product</small></span>
+              <span class="quiz-option__text"><strong>Product Development</strong><small>I have a concept or prototype and need help developing it into a production-ready product.</small></span>
               <span class="quiz-option__mark" aria-hidden="true"></span>
             </button>
             <button type="button" class="quiz-option" data-value="Accelerator Workshop">
-              <span class="quiz-option__text"><strong>Accelerator Workshop</strong><small>Explore &amp; validate your concept</small></span>
+              <span class="quiz-option__text"><strong>Accelerator Workshop</strong><small>I need help exploring, defining, or validating the right direction for my product.</small></span>
               <span class="quiz-option__mark" aria-hidden="true"></span>
             </button>
             <button type="button" class="quiz-option" data-value="Pilot Manufacturing Support">
-              <span class="quiz-option__text"><strong>Pilot Manufacturing Support</strong><small>Get ready to scale production</small></span>
+              <span class="quiz-option__text"><strong>Pilot Manufacturing Support</strong><small>My product is developed and I need help preparing for pilot production.</small></span>
               <span class="quiz-option__mark" aria-hidden="true"></span>
             </button>
           </div>
@@ -3157,6 +3215,37 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     io.observe(el);
   });
 
+  /* ── Stat counters (Challenge section) ───────────────────────
+     Counts each % up to its final value in sync with the bar-fill
+     transition once the section scrolls into view. ────────────── */
+  var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var statEls = document.querySelectorAll('.stat__pct[data-count]');
+  if (statEls.length) {
+    if (reduceMotion || !('IntersectionObserver' in window)) {
+      statEls.forEach(function (el) { el.textContent = el.getAttribute('data-count') + '%'; });
+    } else {
+      var statIO = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (!entry.isIntersecting) return;
+          statIO.unobserve(entry.target);
+          var el = entry.target;
+          var target = parseInt(el.getAttribute('data-count'), 10);
+          var duration = 1400;
+          var start = null;
+          function step(ts) {
+            if (start === null) start = ts;
+            var progress = Math.min((ts - start) / duration, 1);
+            var eased = 1 - Math.pow(1 - progress, 3);
+            el.textContent = Math.round(eased * target) + '%';
+            if (progress < 1) requestAnimationFrame(step);
+          }
+          requestAnimationFrame(step);
+        });
+      }, { threshold: 0.4 });
+      statEls.forEach(function (el) { statIO.observe(el); });
+    }
+  }
+
   /* ── Nav scroll ───────────────────────────────────────────── */
   var nav = document.getElementById('nav');
   window.addEventListener('scroll', function () {
@@ -3269,10 +3358,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       });
       if (backBtn) backBtn.hidden = index === 0;
       if (index < lastIndex) {
-        if (labelEl) labelEl.textContent = 'Step 1 of 2 — Question ' + (index + 1) + ' of ' + lastIndex;
-        if (fillEl) fillEl.style.width = ((index / lastIndex) * 50) + '%';
+        if (labelEl) labelEl.textContent = 'Project Fit — ' + (index + 1) + ' of ' + lastIndex;
+        if (fillEl) fillEl.style.width = (((index + 1) / lastIndex) * 100) + '%';
       } else {
-        if (labelEl) labelEl.textContent = 'Step 2 of 2 — Your details';
+        if (labelEl) labelEl.textContent = 'Contact Details — Final Step';
         if (fillEl) fillEl.style.width = '100%';
         renderChips();
         updateEmbedSrc();
