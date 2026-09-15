@@ -439,6 +439,181 @@ button, input, select, textarea { font-family: inherit; font-size: inherit; }
   flex-shrink: 0;
 }
 
+/* ── Quiz-style lead form ──────────────────────────────────────
+   2-step interactive form: step 1 = three click-through
+   qualifying questions, step 2 = the existing embedded form
+   (untouched, just revealed once step 1 is answered). ───────── */
+.quiz { padding: 20px 28px 28px; }
+.quiz-progress {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+.quiz-back {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  flex-shrink: 0;
+  background: var(--white);
+  border: 1px solid var(--grey-bdr);
+  color: var(--black);
+  font-size: 1rem;
+  line-height: 1;
+  cursor: pointer;
+  transition: border-color 0.15s, color 0.15s;
+}
+.quiz-back:hover { border-color: var(--blue); color: var(--blue); }
+.quiz-progress__track {
+  flex: 1;
+  height: 3px;
+  background: var(--grey-bdr);
+  position: relative;
+  overflow: hidden;
+}
+.quiz-progress__fill {
+  position: absolute;
+  left: 0; top: 0; bottom: 0;
+  width: 0%;
+  background: var(--blue);
+  transition: width 0.35s var(--ease-out);
+}
+.quiz-progress__label {
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--grey);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.quiz-screen { display: none; }
+.quiz-screen.is-active {
+  display: block;
+  animation: quizIn 0.4s var(--ease-out);
+}
+@keyframes quizIn {
+  from { opacity: 0; transform: translateX(14px); }
+  to   { opacity: 1; transform: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .quiz-screen.is-active { animation: none; }
+}
+
+.quiz-eyebrow {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--blue);
+  margin-bottom: 10px;
+}
+.quiz-question {
+  font-family: var(--font-sans);
+  font-size: 1.15rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  line-height: 1.3;
+  color: var(--black);
+  margin-bottom: 16px;
+}
+.quiz-hint {
+  font-size: 0.8rem;
+  font-weight: 300;
+  color: var(--grey);
+  margin: -8px 0 16px;
+}
+.quiz-options {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.quiz-option {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  width: 100%;
+  text-align: left;
+  background: var(--white);
+  border: 2px solid var(--grey-bdr);
+  padding: 14px 16px;
+  cursor: pointer;
+  transition: border-color 0.15s, background 0.15s;
+}
+.quiz-option:hover { border-color: var(--blue); background: var(--blue-light); }
+.quiz-option:focus-visible { outline: 2px solid var(--blue); outline-offset: 2px; }
+.quiz-option__text { display: flex; flex-direction: column; gap: 3px; }
+.quiz-option__text strong {
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--black);
+}
+.quiz-option__text small {
+  font-size: 0.76rem;
+  font-weight: 300;
+  color: var(--grey);
+}
+.quiz-option__mark {
+  width: 18px;
+  height: 18px;
+  border: 2px solid var(--grey-bdr);
+  border-radius: 50%;
+  flex-shrink: 0;
+  position: relative;
+  transition: border-color 0.15s, background 0.15s;
+}
+.quiz-option.is-selected { border-color: var(--blue); background: var(--blue-light); }
+.quiz-option.is-selected .quiz-option__mark { border-color: var(--blue); background: var(--blue); }
+.quiz-option.is-selected .quiz-option__mark::after {
+  content: '';
+  position: absolute;
+  left: 5px; top: 1px;
+  width: 5px; height: 9px;
+  border: solid var(--white);
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+.quiz-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+.quiz-chip {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--black);
+  background: var(--blue-light);
+  border: 1px solid var(--blue);
+  padding: 6px 10px;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+.quiz-chip:hover { background: #dceafe; }
+.quiz-chip span[aria-hidden] { color: var(--blue); font-size: 0.7rem; }
+
+/* Embedded iframe + disclaimer, nested one level deeper inside a
+   quiz screen now — kill the outer padding the standalone card
+   used to add, since .quiz already supplies it. */
+.quiz .hero-form-card__embed { padding: 0; margin: 4px 0 16px; }
+.quiz .hero-form-card__disclaimer,
+.quiz .contact__disclaimer { padding: 0; margin: 12px 0 4px; text-align: left; color: var(--grey); }
+.quiz .contact__disclaimer a { color: var(--blue); }
+.contact-band__form .quiz { padding: 4px 4px 0; }
+
 /* ── Ticker ─────────────────────────────────────────────────── */
 .ticker {
   background: var(--black);
@@ -2184,28 +2359,93 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="hero-form-card__accent" aria-hidden="true"></div>
       <div class="hero-form-card__head">
         <h2 class="hero-form-card__title">Tell Us About Your Project</h2>
-        <p class="hero-form-card__desc">Tell us what you're building and where you are in the development process. We'll review your project and follow up about potential next steps.</p>
+        <p class="hero-form-card__desc">Three quick questions, then your details. We'll review your project and follow up about potential next steps.</p>
       </div>
-      <div class="hero-form-card__embed">
-        <iframe
-            src="https://api.plasticsurgerystudios.com/widget/form/ba8gdamks1hZIKx250ch"
-            style="width:100%;height:100%;border:none;border-radius:8px"
-            id="inline-ba8gdamks1hZIKx250ch"
-            data-layout="{'id':'INLINE'}"
-            data-trigger-type="alwaysShow"
-            data-trigger-value=""
-            data-activation-type="alwaysActivated"
-            data-activation-value=""
-            data-deactivation-type="neverDeactivate"
-            data-deactivation-value=""
-            data-form-name="New PPC Form"
-            data-height="893"
-            data-layout-iframe-id="inline-ba8gdamks1hZIKx250ch"
-            data-form-id="ba8gdamks1hZIKx250ch"
-            title="New PPC Form"
-        ></iframe>
+
+      <div class="quiz" data-quiz>
+        <div class="quiz-progress">
+          <button type="button" class="quiz-back" data-quiz-back aria-label="Back to previous question" hidden>‹</button>
+          <div class="quiz-progress__track"><span class="quiz-progress__fill" data-quiz-fill></span></div>
+          <span class="quiz-progress__label" data-quiz-label>Step 1 of 2</span>
+        </div>
+
+        <div class="quiz-screen is-active" data-quiz-screen="0">
+          <span class="quiz-eyebrow">Question 1 of 3</span>
+          <h3 class="quiz-question">Which best describes you?</h3>
+          <div class="quiz-options" data-quiz-key="company_type">
+            <button type="button" class="quiz-option" data-value="Funded Startup"><span class="quiz-option__text"><strong>Funded Startup</strong></span><span class="quiz-option__mark" aria-hidden="true"></span></button>
+            <button type="button" class="quiz-option" data-value="Agency"><span class="quiz-option__text"><strong>Agency</strong></span><span class="quiz-option__mark" aria-hidden="true"></span></button>
+            <button type="button" class="quiz-option" data-value="Corporate Innovation Team"><span class="quiz-option__text"><strong>Corporate Innovation Team</strong></span><span class="quiz-option__mark" aria-hidden="true"></span></button>
+            <button type="button" class="quiz-option" data-value="Brand/Marketing Team"><span class="quiz-option__text"><strong>Brand / Marketing Team</strong></span><span class="quiz-option__mark" aria-hidden="true"></span></button>
+            <button type="button" class="quiz-option" data-value="Other"><span class="quiz-option__text"><strong>Other</strong></span><span class="quiz-option__mark" aria-hidden="true"></span></button>
+          </div>
+        </div>
+
+        <div class="quiz-screen" data-quiz-screen="1">
+          <span class="quiz-eyebrow">Question 2 of 3</span>
+          <h3 class="quiz-question">What's your estimated budget?</h3>
+          <p class="quiz-hint">Ballpark is fine — this helps us recommend the right engagement.</p>
+          <div class="quiz-options" data-quiz-key="estimated_budget">
+            <button type="button" class="quiz-option" data-value="$7.5k - $15k"><span class="quiz-option__text"><strong>$7.5k – $15k</strong></span><span class="quiz-option__mark" aria-hidden="true"></span></button>
+            <button type="button" class="quiz-option" data-value="$15k - $50k"><span class="quiz-option__text"><strong>$15k – $50k</strong></span><span class="quiz-option__mark" aria-hidden="true"></span></button>
+            <button type="button" class="quiz-option" data-value="$50k - $100k"><span class="quiz-option__text"><strong>$50k – $100k</strong></span><span class="quiz-option__mark" aria-hidden="true"></span></button>
+            <button type="button" class="quiz-option" data-value="$100k - $250k"><span class="quiz-option__text"><strong>$100k – $250k</strong></span><span class="quiz-option__mark" aria-hidden="true"></span></button>
+            <button type="button" class="quiz-option" data-value="$250k - $1M"><span class="quiz-option__text"><strong>$250k – $1M</strong></span><span class="quiz-option__mark" aria-hidden="true"></span></button>
+            <button type="button" class="quiz-option" data-value="$1M+"><span class="quiz-option__text"><strong>$1M+</strong></span><span class="quiz-option__mark" aria-hidden="true"></span></button>
+          </div>
+        </div>
+
+        <div class="quiz-screen" data-quiz-screen="2">
+          <span class="quiz-eyebrow">Question 3 of 3</span>
+          <h3 class="quiz-question">What do you need help with?</h3>
+          <div class="quiz-options" data-quiz-key="requested_services">
+            <button type="button" class="quiz-option" data-value="Holistic Innovation Sprint">
+              <span class="quiz-option__text"><strong>Holistic Innovation Sprint</strong><small>Proof-of-concept prototype build</small></span>
+              <span class="quiz-option__mark" aria-hidden="true"></span>
+            </button>
+            <button type="button" class="quiz-option" data-value="Product Development">
+              <span class="quiz-option__text"><strong>Product Development</strong><small>Engineer your production-ready product</small></span>
+              <span class="quiz-option__mark" aria-hidden="true"></span>
+            </button>
+            <button type="button" class="quiz-option" data-value="Accelerator Workshop">
+              <span class="quiz-option__text"><strong>Accelerator Workshop</strong><small>Explore &amp; validate your concept</small></span>
+              <span class="quiz-option__mark" aria-hidden="true"></span>
+            </button>
+            <button type="button" class="quiz-option" data-value="Pilot Manufacturing Support">
+              <span class="quiz-option__text"><strong>Pilot Manufacturing Support</strong><small>Get ready to scale production</small></span>
+              <span class="quiz-option__mark" aria-hidden="true"></span>
+            </button>
+          </div>
+        </div>
+
+        <div class="quiz-screen" data-quiz-screen="3">
+          <span class="quiz-eyebrow">Last step</span>
+          <h3 class="quiz-question">Just a few details and we'll take it from here.</h3>
+          <div class="quiz-chips" data-quiz-chips></div>
+          <div class="hero-form-card__embed">
+            <iframe
+                data-quiz-embed
+                src="https://api.plasticsurgerystudios.com/widget/form/AV8DG8XyEwP9RnhcTk9N"
+                style="width:100%;height:100%;border:none;border-radius:8px"
+                id="inline-AV8DG8XyEwP9RnhcTk9N"
+                data-layout="{'id':'INLINE'}"
+                data-trigger-type="alwaysShow"
+                data-trigger-value=""
+                data-activation-type="alwaysActivated"
+                data-activation-value=""
+                data-deactivation-type="neverDeactivate"
+                data-deactivation-value=""
+                data-form-name="New PPC Form - Copy"
+                data-height="893"
+                data-layout-iframe-id="inline-AV8DG8XyEwP9RnhcTk9N"
+                data-form-id="AV8DG8XyEwP9RnhcTk9N"
+                title="New PPC Form - Copy"
+            ></iframe>
+          </div>
+          <p class="hero-form-card__disclaimer">By submitting this form, you consent to being contacted by our team via phone and email regarding your project inquiry. Your information is kept confidential and handled in accordance with our <a href="https://www.tomorrow-lab.com/privacy" target="_blank" rel="noopener">Privacy Policy</a>.</p>
+        </div>
       </div>
-      <p class="hero-form-card__disclaimer">By submitting this form, you consent to being contacted by our team via phone and email regarding your project inquiry. Your information is kept confidential and handled in accordance with our <a href="https://www.tomorrow-lab.com/privacy" target="_blank" rel="noopener">Privacy Policy</a>.</p>
+
       <div class="hero-form-card__next">
         <span class="section-label">What Happens Next</span>
         <ol>
@@ -2745,28 +2985,91 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <div class="container">
     <div class="contact-band__head">
       <h2 class="contact-band__title">Ready to Build What's Next?</h2>
-      <p class="contact-band__desc">Tell us about your project. We'll review it and follow up about potential next steps.</p>
+      <p class="contact-band__desc">Three quick questions, then your details. We'll review it and follow up about potential next steps.</p>
     </div>
     <div class="contact-band__form">
-      <iframe
-          src="https://api.plasticsurgerystudios.com/widget/form/ba8gdamks1hZIKx250ch"
-          style="width:100%;height:100%;border:none;border-radius:8px"
-          id="inline-ba8gdamks1hZIKx250ch-2"
-          data-layout="{'id':'INLINE'}"
-          data-trigger-type="alwaysShow"
-          data-trigger-value=""
-          data-activation-type="alwaysActivated"
-          data-activation-value=""
-          data-deactivation-type="neverDeactivate"
-          data-deactivation-value=""
-          data-form-name="New PPC Form"
-          data-height="893"
-          data-layout-iframe-id="inline-ba8gdamks1hZIKx250ch-2"
-          data-form-id="ba8gdamks1hZIKx250ch"
-          title="New PPC Form"
-      ></iframe>
+      <div class="quiz" data-quiz>
+        <div class="quiz-progress">
+          <button type="button" class="quiz-back" data-quiz-back aria-label="Back to previous question" hidden>‹</button>
+          <div class="quiz-progress__track"><span class="quiz-progress__fill" data-quiz-fill></span></div>
+          <span class="quiz-progress__label" data-quiz-label>Step 1 of 2</span>
+        </div>
+
+        <div class="quiz-screen is-active" data-quiz-screen="0">
+          <span class="quiz-eyebrow">Question 1 of 3</span>
+          <h3 class="quiz-question">Which best describes you?</h3>
+          <div class="quiz-options" data-quiz-key="company_type">
+            <button type="button" class="quiz-option" data-value="Funded Startup"><span class="quiz-option__text"><strong>Funded Startup</strong></span><span class="quiz-option__mark" aria-hidden="true"></span></button>
+            <button type="button" class="quiz-option" data-value="Agency"><span class="quiz-option__text"><strong>Agency</strong></span><span class="quiz-option__mark" aria-hidden="true"></span></button>
+            <button type="button" class="quiz-option" data-value="Corporate Innovation Team"><span class="quiz-option__text"><strong>Corporate Innovation Team</strong></span><span class="quiz-option__mark" aria-hidden="true"></span></button>
+            <button type="button" class="quiz-option" data-value="Brand/Marketing Team"><span class="quiz-option__text"><strong>Brand / Marketing Team</strong></span><span class="quiz-option__mark" aria-hidden="true"></span></button>
+            <button type="button" class="quiz-option" data-value="Other"><span class="quiz-option__text"><strong>Other</strong></span><span class="quiz-option__mark" aria-hidden="true"></span></button>
+          </div>
+        </div>
+
+        <div class="quiz-screen" data-quiz-screen="1">
+          <span class="quiz-eyebrow">Question 2 of 3</span>
+          <h3 class="quiz-question">What's your estimated budget?</h3>
+          <p class="quiz-hint">Ballpark is fine — this helps us recommend the right engagement.</p>
+          <div class="quiz-options" data-quiz-key="estimated_budget">
+            <button type="button" class="quiz-option" data-value="$7.5k - $15k"><span class="quiz-option__text"><strong>$7.5k – $15k</strong></span><span class="quiz-option__mark" aria-hidden="true"></span></button>
+            <button type="button" class="quiz-option" data-value="$15k - $50k"><span class="quiz-option__text"><strong>$15k – $50k</strong></span><span class="quiz-option__mark" aria-hidden="true"></span></button>
+            <button type="button" class="quiz-option" data-value="$50k - $100k"><span class="quiz-option__text"><strong>$50k – $100k</strong></span><span class="quiz-option__mark" aria-hidden="true"></span></button>
+            <button type="button" class="quiz-option" data-value="$100k - $250k"><span class="quiz-option__text"><strong>$100k – $250k</strong></span><span class="quiz-option__mark" aria-hidden="true"></span></button>
+            <button type="button" class="quiz-option" data-value="$250k - $1M"><span class="quiz-option__text"><strong>$250k – $1M</strong></span><span class="quiz-option__mark" aria-hidden="true"></span></button>
+            <button type="button" class="quiz-option" data-value="$1M+"><span class="quiz-option__text"><strong>$1M+</strong></span><span class="quiz-option__mark" aria-hidden="true"></span></button>
+          </div>
+        </div>
+
+        <div class="quiz-screen" data-quiz-screen="2">
+          <span class="quiz-eyebrow">Question 3 of 3</span>
+          <h3 class="quiz-question">What do you need help with?</h3>
+          <div class="quiz-options" data-quiz-key="requested_services">
+            <button type="button" class="quiz-option" data-value="Holistic Innovation Sprint">
+              <span class="quiz-option__text"><strong>Holistic Innovation Sprint</strong><small>Proof-of-concept prototype build</small></span>
+              <span class="quiz-option__mark" aria-hidden="true"></span>
+            </button>
+            <button type="button" class="quiz-option" data-value="Product Development">
+              <span class="quiz-option__text"><strong>Product Development</strong><small>Engineer your production-ready product</small></span>
+              <span class="quiz-option__mark" aria-hidden="true"></span>
+            </button>
+            <button type="button" class="quiz-option" data-value="Accelerator Workshop">
+              <span class="quiz-option__text"><strong>Accelerator Workshop</strong><small>Explore &amp; validate your concept</small></span>
+              <span class="quiz-option__mark" aria-hidden="true"></span>
+            </button>
+            <button type="button" class="quiz-option" data-value="Pilot Manufacturing Support">
+              <span class="quiz-option__text"><strong>Pilot Manufacturing Support</strong><small>Get ready to scale production</small></span>
+              <span class="quiz-option__mark" aria-hidden="true"></span>
+            </button>
+          </div>
+        </div>
+
+        <div class="quiz-screen" data-quiz-screen="3">
+          <span class="quiz-eyebrow">Last step</span>
+          <h3 class="quiz-question">Just a few details and we'll take it from here.</h3>
+          <div class="quiz-chips" data-quiz-chips></div>
+          <iframe
+              data-quiz-embed
+              src="https://api.plasticsurgerystudios.com/widget/form/AV8DG8XyEwP9RnhcTk9N"
+              style="width:100%;height:100%;border:none;border-radius:8px"
+              id="inline-AV8DG8XyEwP9RnhcTk9N-2"
+              data-layout="{'id':'INLINE'}"
+              data-trigger-type="alwaysShow"
+              data-trigger-value=""
+              data-activation-type="alwaysActivated"
+              data-activation-value=""
+              data-deactivation-type="neverDeactivate"
+              data-deactivation-value=""
+              data-form-name="New PPC Form - Copy"
+              data-height="893"
+              data-layout-iframe-id="inline-AV8DG8XyEwP9RnhcTk9N-2"
+              data-form-id="AV8DG8XyEwP9RnhcTk9N"
+              title="New PPC Form - Copy"
+          ></iframe>
+          <p class="contact__disclaimer">By submitting this form, you consent to being contacted by our team via phone and email regarding your project inquiry. Your information is kept confidential and handled in accordance with our <a href="https://www.tomorrow-lab.com/privacy" target="_blank" rel="noopener">Privacy Policy</a>.</p>
+        </div>
+      </div>
     </div>
-    <p class="contact__disclaimer" style="max-width:640px;margin-left:auto;margin-right:auto;text-align:center;">By submitting this form, you consent to being contacted by our team via phone and email regarding your project inquiry. Your information is kept confidential and handled in accordance with our <a href="https://www.tomorrow-lab.com/privacy" target="_blank" rel="noopener">Privacy Policy</a>.</p>
   </div>
 </section>
 <script src="https://api.plasticsurgerystudios.com/js/form_embed.js"></script>
@@ -2900,6 +3203,103 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     }, { threshold: 0.1 });
     stickyIO.observe(leadFormEl);
   }
+
+  /* ── Quiz-style lead form ─────────────────────────────────────
+     Step 1: three click-through qualifying questions (no typing).
+     Step 2: the embedded GHL form, revealed once answered. Its
+     Company Type / Requested Services / Estimated Budget fields
+     are hidden fields on the form, silently filled by appending
+     the quiz answers as URL params on the iframe src below. ────── */
+  var QUIZ_FIELD_TO_PARAM = {
+    requested_services: 'requested_services_quiz',
+    company_type: 'company_type_quiz',
+    estimated_budget: 'estimated_budget_quiz'
+  };
+
+  document.querySelectorAll('[data-quiz]').forEach(function (quiz) {
+    var screens = Array.prototype.slice.call(quiz.querySelectorAll('[data-quiz-screen]'));
+    var backBtn = quiz.querySelector('[data-quiz-back]');
+    var fillEl  = quiz.querySelector('.quiz-progress__fill');
+    var labelEl = quiz.querySelector('.quiz-progress__label');
+    var lastIndex = screens.length - 1; // final screen = contact details
+    var answers = {};
+    var current = 0;
+
+    function updateEmbedSrc() {
+      var iframe = quiz.querySelector('[data-quiz-embed]');
+      if (!iframe) return;
+      var base = (iframe.getAttribute('data-embed-base') || iframe.src.split('?')[0]);
+      iframe.setAttribute('data-embed-base', base);
+      var params = Object.keys(QUIZ_FIELD_TO_PARAM)
+        .filter(function (key) { return answers[key]; })
+        .map(function (key) { return QUIZ_FIELD_TO_PARAM[key] + '=' + encodeURIComponent(answers[key]); });
+      var nextSrc = params.length ? (base + '?' + params.join('&')) : base;
+      if (iframe.src !== nextSrc) iframe.src = nextSrc;
+    }
+
+    function renderChips() {
+      var chipsWrap = quiz.querySelector('[data-quiz-chips]');
+      if (!chipsWrap) return;
+      chipsWrap.innerHTML = '';
+      screens.forEach(function (screen) {
+        var idx = Number(screen.getAttribute('data-quiz-screen'));
+        var optionsWrap = screen.querySelector('[data-quiz-key]');
+        if (!optionsWrap) return;
+        var key = optionsWrap.getAttribute('data-quiz-key');
+        var a = answers[key];
+        if (!a) return;
+        var chip = document.createElement('button');
+        chip.type = 'button';
+        chip.className = 'quiz-chip';
+        chip.innerHTML = '<span></span><span aria-hidden="true">✎</span>';
+        chip.querySelector('span').textContent = a;
+        chip.addEventListener('click', function () { goTo(idx); });
+        chipsWrap.appendChild(chip);
+      });
+    }
+
+    function goTo(index) {
+      current = index;
+      screens.forEach(function (s) {
+        s.classList.toggle('is-active', Number(s.getAttribute('data-quiz-screen')) === index);
+      });
+      if (backBtn) backBtn.hidden = index === 0;
+      if (index < lastIndex) {
+        if (labelEl) labelEl.textContent = 'Step 1 of 2 — Question ' + (index + 1) + ' of ' + lastIndex;
+        if (fillEl) fillEl.style.width = ((index / lastIndex) * 50) + '%';
+      } else {
+        if (labelEl) labelEl.textContent = 'Step 2 of 2 — Your details';
+        if (fillEl) fillEl.style.width = '100%';
+        renderChips();
+        updateEmbedSrc();
+        tlTrack('quiz_completed', answers);
+      }
+    }
+
+    screens.forEach(function (screen) {
+      var idx = Number(screen.getAttribute('data-quiz-screen'));
+      var optionsWrap = screen.querySelector('[data-quiz-key]');
+      if (!optionsWrap) return;
+      var key = optionsWrap.getAttribute('data-quiz-key');
+      optionsWrap.querySelectorAll('.quiz-option').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          optionsWrap.querySelectorAll('.quiz-option').forEach(function (b) { b.classList.remove('is-selected'); });
+          btn.classList.add('is-selected');
+          answers[key] = btn.getAttribute('data-value');
+          tlTrack('quiz_answer', { question: key, answer: answers[key], step: idx + 1 });
+          setTimeout(function () { goTo(idx + 1); }, 320);
+        });
+      });
+    });
+
+    if (backBtn) {
+      backBtn.addEventListener('click', function () {
+        if (current > 0) goTo(current - 1);
+      });
+    }
+
+    goTo(0);
+  });
 
   /* ── Analytics: extend existing GTM dataLayer, don't replace it ──
      Landing page visit → form view → form start → form completion.
